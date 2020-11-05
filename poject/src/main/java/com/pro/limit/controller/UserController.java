@@ -4,7 +4,9 @@ import com.pro.limit.model.User;
 import com.pro.limit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * @author xiaoyang
@@ -18,9 +20,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @ResponseBody
     @RequestMapping("/list")
     private String list(){
         User user = userService.selectByPrimaryKey(1);
-        return user.getUsername();
+        return "hello";
     }
 }
