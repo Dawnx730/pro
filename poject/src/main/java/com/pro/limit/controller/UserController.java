@@ -12,12 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 
 @Controller
-@RequestMapping("/User")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
+    @RequestMapping("/list")
     private String list(){
         User user = userService.selectByPrimaryKey(1);
         return user.getUsername();

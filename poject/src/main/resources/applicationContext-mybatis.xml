@@ -8,7 +8,7 @@
     <!-- 注解驱动 -->
     <context:annotation-config/>
     <!-- 用注解方式注入bean，并指定查找范围：com.xiaoyang及子子孙孙包-->
-    <context:component-scan base-package="com.xiaoyang"/>
+    <context:component-scan base-package="com.pro"/>
 
 <!--    <context:property-placeholder location="classpath:jdbc.properties"/>-->
 
@@ -37,9 +37,9 @@
         <!-- 指定数据源 -->
         <property name="dataSource" ref="dataSource"/>
         <!-- 自动扫描XxxMapping.xml文件，**任意路径 -->
-        <property name="mapperLocations" value="classpath*:com/xiaoyang/**/mapper/*.xml"/>
+        <property name="mapperLocations" value="classpath*:com/pro/**/mapper/*.xml"/>
         <!-- 指定别名 -->
-        <property name="typeAliasesPackage" value="com/xiaoyang/**/model"/>
+        <property name="typeAliasesPackage" value="com/pro/**/model"/>
         <!--设置mybaits对缓存的支持-->
         <property name="configurationProperties">
             <props>
@@ -65,12 +65,12 @@
         </property>
     </bean>
 
-    <!--2) 自动扫描com/xiaoyang/**/mapper下的所有XxxMapper接口(其实就是DAO接口)，并实现这些接口，-->
+    <!--2) 自动扫描com/pro/**/mapper下的所有XxxMapper接口(其实就是DAO接口)，并实现这些接口，-->
     <!--   即可直接在程序中使用dao接口，不用再获取sqlsession对象-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!--basePackage 属性是映射器接口文件的包路径。-->
         <!--你可以使用分号或逗号 作为分隔符设置多于一个的包路径-->
-        <property name="basePackage" value="com/xiaoyang/**/mapper"/>
+        <property name="basePackage" value="com/pro/**/mapper"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 <!--注解式事务-->

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pro.trainingapproval.mapper.TrainingfeedbackMapper" >
+  <resultMap id="BaseResultMap" type="com.pro.trainingapproval.model.Trainingfeedback" >
+    <constructor >
+      <idArg column="tfid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="userid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="username" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="trf" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="trfk" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="fstatus" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tfid, userid, username, trf, trfk, fstatus
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from trainingfeedback
+    where tfid = #{tfid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from trainingfeedback
+    where tfid = #{tfid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pro.trainingapproval.model.Trainingfeedback" >
+    insert into trainingfeedback (tfid, userid, username, 
+      trf, trfk, fstatus)
+    values (#{tfid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, 
+      #{trf,jdbcType=VARCHAR}, #{trfk,jdbcType=VARCHAR}, #{fstatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pro.trainingapproval.model.Trainingfeedback" >
+    insert into trainingfeedback
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tfid != null" >
+        tfid,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="trf != null" >
+        trf,
+      </if>
+      <if test="trfk != null" >
+        trfk,
+      </if>
+      <if test="fstatus != null" >
+        fstatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tfid != null" >
+        #{tfid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="trf != null" >
+        #{trf,jdbcType=VARCHAR},
+      </if>
+      <if test="trfk != null" >
+        #{trfk,jdbcType=VARCHAR},
+      </if>
+      <if test="fstatus != null" >
+        #{fstatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pro.trainingapproval.model.Trainingfeedback" >
+    update trainingfeedback
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="trf != null" >
+        trf = #{trf,jdbcType=VARCHAR},
+      </if>
+      <if test="trfk != null" >
+        trfk = #{trfk,jdbcType=VARCHAR},
+      </if>
+      <if test="fstatus != null" >
+        fstatus = #{fstatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where tfid = #{tfid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pro.trainingapproval.model.Trainingfeedback" >
+    update trainingfeedback
+    set userid = #{userid,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      trf = #{trf,jdbcType=VARCHAR},
+      trfk = #{trfk,jdbcType=VARCHAR},
+      fstatus = #{fstatus,jdbcType=INTEGER}
+    where tfid = #{tfid,jdbcType=INTEGER}
+  </update>
+</mapper>
