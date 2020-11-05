@@ -1,7 +1,7 @@
 package com.pro.contract.model;
 
 /**
- * 合同管理
+ * 合同管理（人事档案管理模块）
  */
 public class Contract {
     private Integer id;
