@@ -21,15 +21,15 @@ public class UserController {
     private UserService userService;
 
     @ResponseBody
-    @RequestMapping("/login")
-    private String list(){
-        User u=new User();
+    @RequestMapping(value = "/login", produces = "text/html;charset=UTF-8;")
+    private String list() {
+        User u = new User();
         u.setUsername("admin");
         u.setPassword("123");
         User login = userService.login(u);
-        if(login!=null){
+        if (login.getStatus() == 1) {
             return "登录成功";
         }
-        return "登录失败";
+        return "";
     }
 }

@@ -73,4 +73,16 @@ public class User {
     public void setFid(Integer fid) {
         this.fid = fid;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userid=" + userid +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", level=" + level +
+                ", status=" + status +
+                ", fid=" + fid +
+                '}';
+    }
 }
