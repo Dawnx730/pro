@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pro.rem.mapper.AttendanceMapper" >
+  <resultMap id="BaseResultMap" type="com.pro.rem.model.Attendance" >
+    <constructor >
+      <idArg column="aid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="fid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="late" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="leave" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="absenteeism" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="attendance" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="attmonth" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="aremark" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    aid, fid, late, leave, absenteeism, attendance, attmonth, aremark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from attendance
+    where aid = #{aid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from attendance
+    where aid = #{aid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pro.rem.model.Attendance" >
+    insert into attendance (aid, fid, late, 
+      leave, absenteeism, attendance, 
+      attmonth, aremark)
+    values (#{aid,jdbcType=INTEGER}, #{fid,jdbcType=INTEGER}, #{late,jdbcType=INTEGER}, 
+      #{leave,jdbcType=INTEGER}, #{absenteeism,jdbcType=INTEGER}, #{attendance,jdbcType=INTEGER}, 
+      #{attmonth,jdbcType=INTEGER}, #{aremark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pro.rem.model.Attendance" >
+    insert into attendance
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="aid != null" >
+        aid,
+      </if>
+      <if test="fid != null" >
+        fid,
+      </if>
+      <if test="late != null" >
+        late,
+      </if>
+      <if test="leave != null" >
+        leave,
+      </if>
+      <if test="absenteeism != null" >
+        absenteeism,
+      </if>
+      <if test="attendance != null" >
+        attendance,
+      </if>
+      <if test="attmonth != null" >
+        attmonth,
+      </if>
+      <if test="aremark != null" >
+        aremark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="aid != null" >
+        #{aid,jdbcType=INTEGER},
+      </if>
+      <if test="fid != null" >
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="late != null" >
+        #{late,jdbcType=INTEGER},
+      </if>
+      <if test="leave != null" >
+        #{leave,jdbcType=INTEGER},
+      </if>
+      <if test="absenteeism != null" >
+        #{absenteeism,jdbcType=INTEGER},
+      </if>
+      <if test="attendance != null" >
+        #{attendance,jdbcType=INTEGER},
+      </if>
+      <if test="attmonth != null" >
+        #{attmonth,jdbcType=INTEGER},
+      </if>
+      <if test="aremark != null" >
+        #{aremark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pro.rem.model.Attendance" >
+    update attendance
+    <set >
+      <if test="fid != null" >
+        fid = #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="late != null" >
+        late = #{late,jdbcType=INTEGER},
+      </if>
+      <if test="leave != null" >
+        leave = #{leave,jdbcType=INTEGER},
+      </if>
+      <if test="absenteeism != null" >
+        absenteeism = #{absenteeism,jdbcType=INTEGER},
+      </if>
+      <if test="attendance != null" >
+        attendance = #{attendance,jdbcType=INTEGER},
+      </if>
+      <if test="attmonth != null" >
+        attmonth = #{attmonth,jdbcType=INTEGER},
+      </if>
+      <if test="aremark != null" >
+        aremark = #{aremark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where aid = #{aid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pro.rem.model.Attendance" >
+    update attendance
+    set fid = #{fid,jdbcType=INTEGER},
+      late = #{late,jdbcType=INTEGER},
+      leave = #{leave,jdbcType=INTEGER},
+      absenteeism = #{absenteeism,jdbcType=INTEGER},
+      attendance = #{attendance,jdbcType=INTEGER},
+      attmonth = #{attmonth,jdbcType=INTEGER},
+      aremark = #{aremark,jdbcType=VARCHAR}
+    where aid = #{aid,jdbcType=INTEGER}
+  </update>
+</mapper>
