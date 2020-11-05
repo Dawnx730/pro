@@ -17,11 +17,11 @@ public class Userinfo {
 
     private String edu;
 
-    private String native;
+    private String nat;
 
     private Integer fstatus;
 
-    public Userinfo(Integer fid, String fname, Integer deptid, String position, Integer ftel, String fsex, String birth, String edu, String native, Integer fstatus) {
+    public Userinfo(Integer fid, String fname, Integer deptid, String position, Integer ftel, String fsex, String birth, String edu, String nat, Integer fstatus) {
         this.fid = fid;
         this.fname = fname;
         this.deptid = deptid;
@@ -30,7 +30,7 @@ public class Userinfo {
         this.fsex = fsex;
         this.birth = birth;
         this.edu = edu;
-        this.native = native;
+        this.nat = nat;
         this.fstatus = fstatus;
     }
 
@@ -102,12 +102,12 @@ public class Userinfo {
         this.edu = edu;
     }
 
-    public String getNative() {
-        return native;
+    public String getNat() {
+        return nat;
     }
 
-    public void setNative(String native) {
-        this.native = native;
+    public void setNat(String nat) {
+        this.nat = nat;
     }
 
     public Integer getFstatus() {

@@ -11,12 +11,12 @@
       <arg column="fsex" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="birth" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="edu" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="native" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="nat" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="fstatus" jdbcType="INTEGER" javaType="java.lang.Integer" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    fid, fname, deptid, position, ftel, fsex, birth, edu, native, fstatus
+    fid, fname, deptid, position, ftel, fsex, birth, edu, nat, fstatus
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -31,12 +31,12 @@
   <insert id="insert" parameterType="com.pro.limit.model.Userinfo" >
     insert into userinfo (fid, fname, deptid, 
       position, ftel, fsex, 
-      birth, edu, native, 
-      fstatus)
+      birth, edu, nat, fstatus
+      )
     values (#{fid,jdbcType=INTEGER}, #{fname,jdbcType=VARCHAR}, #{deptid,jdbcType=INTEGER}, 
       #{position,jdbcType=VARCHAR}, #{ftel,jdbcType=INTEGER}, #{fsex,jdbcType=VARCHAR}, 
-      #{birth,jdbcType=VARCHAR}, #{edu,jdbcType=VARCHAR}, #{native,jdbcType=VARCHAR}, 
-      #{fstatus,jdbcType=INTEGER})
+      #{birth,jdbcType=VARCHAR}, #{edu,jdbcType=VARCHAR}, #{nat,jdbcType=VARCHAR}, #{fstatus,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.pro.limit.model.Userinfo" >
     insert into userinfo
@@ -65,8 +65,8 @@
       <if test="edu != null" >
         edu,
       </if>
-      <if test="native != null" >
-        native,
+      <if test="nat != null" >
+        nat,
       </if>
       <if test="fstatus != null" >
         fstatus,
@@ -97,8 +97,8 @@
       <if test="edu != null" >
         #{edu,jdbcType=VARCHAR},
       </if>
-      <if test="native != null" >
-        #{native,jdbcType=VARCHAR},
+      <if test="nat != null" >
+        #{nat,jdbcType=VARCHAR},
       </if>
       <if test="fstatus != null" >
         #{fstatus,jdbcType=INTEGER},
@@ -129,8 +129,8 @@
       <if test="edu != null" >
         edu = #{edu,jdbcType=VARCHAR},
       </if>
-      <if test="native != null" >
-        native = #{native,jdbcType=VARCHAR},
+      <if test="nat != null" >
+        nat = #{nat,jdbcType=VARCHAR},
       </if>
       <if test="fstatus != null" >
         fstatus = #{fstatus,jdbcType=INTEGER},
@@ -147,7 +147,7 @@
       fsex = #{fsex,jdbcType=VARCHAR},
       birth = #{birth,jdbcType=VARCHAR},
       edu = #{edu,jdbcType=VARCHAR},
-      native = #{native,jdbcType=VARCHAR},
+      nat = #{nat,jdbcType=VARCHAR},
       fstatus = #{fstatus,jdbcType=INTEGER}
     where fid = #{fid,jdbcType=INTEGER}
   </update>
