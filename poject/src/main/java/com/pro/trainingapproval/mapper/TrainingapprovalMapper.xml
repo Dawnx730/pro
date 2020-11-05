@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pro.trainingapproval.mapper.TrainingapprovalMapper" >
+  <resultMap id="BaseResultMap" type="com.pro.trainingapproval.model.Trainingapproval" >
+    <constructor >
+      <idArg column="taid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="userid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="trf" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="fzr" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="trmark" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="deptid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="tstatus" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    taid, userid, trf, fzr, trmark, deptid, tstatus
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from trainingapproval
+    where taid = #{taid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from trainingapproval
+    where taid = #{taid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pro.trainingapproval.model.Trainingapproval" >
+    insert into trainingapproval (taid, userid, trf, 
+      fzr, trmark, deptid, 
+      tstatus)
+    values (#{taid,jdbcType=INTEGER}, #{userid,jdbcType=INTEGER}, #{trf,jdbcType=VARCHAR}, 
+      #{fzr,jdbcType=VARCHAR}, #{trmark,jdbcType=INTEGER}, #{deptid,jdbcType=INTEGER}, 
+      #{tstatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pro.trainingapproval.model.Trainingapproval" >
+    insert into trainingapproval
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="taid != null" >
+        taid,
+      </if>
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="trf != null" >
+        trf,
+      </if>
+      <if test="fzr != null" >
+        fzr,
+      </if>
+      <if test="trmark != null" >
+        trmark,
+      </if>
+      <if test="deptid != null" >
+        deptid,
+      </if>
+      <if test="tstatus != null" >
+        tstatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="taid != null" >
+        #{taid,jdbcType=INTEGER},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="trf != null" >
+        #{trf,jdbcType=VARCHAR},
+      </if>
+      <if test="fzr != null" >
+        #{fzr,jdbcType=VARCHAR},
+      </if>
+      <if test="trmark != null" >
+        #{trmark,jdbcType=INTEGER},
+      </if>
+      <if test="deptid != null" >
+        #{deptid,jdbcType=INTEGER},
+      </if>
+      <if test="tstatus != null" >
+        #{tstatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pro.trainingapproval.model.Trainingapproval" >
+    update trainingapproval
+    <set >
+      <if test="userid != null" >
+        userid = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="trf != null" >
+        trf = #{trf,jdbcType=VARCHAR},
+      </if>
+      <if test="fzr != null" >
+        fzr = #{fzr,jdbcType=VARCHAR},
+      </if>
+      <if test="trmark != null" >
+        trmark = #{trmark,jdbcType=INTEGER},
+      </if>
+      <if test="deptid != null" >
+        deptid = #{deptid,jdbcType=INTEGER},
+      </if>
+      <if test="tstatus != null" >
+        tstatus = #{tstatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where taid = #{taid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pro.trainingapproval.model.Trainingapproval" >
+    update trainingapproval
+    set userid = #{userid,jdbcType=INTEGER},
+      trf = #{trf,jdbcType=VARCHAR},
+      fzr = #{fzr,jdbcType=VARCHAR},
+      trmark = #{trmark,jdbcType=INTEGER},
+      deptid = #{deptid,jdbcType=INTEGER},
+      tstatus = #{tstatus,jdbcType=INTEGER}
+    where taid = #{taid,jdbcType=INTEGER}
+  </update>
+</mapper>
