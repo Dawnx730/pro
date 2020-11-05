@@ -21,9 +21,15 @@ public class UserController {
     private UserService userService;
 
     @ResponseBody
-    @RequestMapping("/list")
+    @RequestMapping("/login")
     private String list(){
-        User user = userService.selectByPrimaryKey(1);
-        return "hello"+user.getUsername();
+        User u=new User();
+        u.setUsername("admin");
+        u.setPassword("123");
+        User login = userService.login(u);
+        if(login!=null){
+            return "登录成功";
+        }
+        return "登录失败";
     }
 }
