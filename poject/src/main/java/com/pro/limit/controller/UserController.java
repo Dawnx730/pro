@@ -24,6 +24,6 @@ public class UserController {
     @RequestMapping("/list")
     private String list(){
         User user = userService.selectByPrimaryKey(1);
-        return "hello";
+        return "hello"+user.getUsername();
     }
 }
