@@ -1,5 +1,9 @@
 package com.pro.rem.model;
 
+
+/**
+ * 薪酬管理
+ */
 public class Salary {
     private Integer userid;
 
