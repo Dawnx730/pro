@@ -1,10 +1,12 @@
-package com.pro.limit.mapper;
+package com.pro.limit.service;
 
 import com.pro.limit.model.User;
-import org.springframework.stereotype.Repository;
 
-@Repository
-public interface UserMapper {
+/**
+ * @author xiaoyang
+ * @create  2020-11-05 9:32
+ */
+public interface UserService {
     int deleteByPrimaryKey(Integer userid);
 
     int insert(User record);
