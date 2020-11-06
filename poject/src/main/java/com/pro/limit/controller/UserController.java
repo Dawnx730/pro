@@ -20,12 +20,14 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     * 登录验证
+     * @param u
+     * @return
+     */
     @ResponseBody
     @RequestMapping(value = "/login", produces = "text/html;charset=UTF-8;")
-    private String list() {
-        User u = new User();
-        u.setUsername("admin");
-        u.setPassword("123");
+    private String list(User u) {
         User login = userService.login(u);
         if (login.getStatus() == 1) {
             return "登录成功";
