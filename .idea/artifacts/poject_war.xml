@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="poject:war">
+    <output-path>$PROJECT_DIR$/poject/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>poject</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="ssm.war">
+      <element id="artifact" artifact-name="poject:war exploded" />
+    </root>
+  </artifact>
+</component>
