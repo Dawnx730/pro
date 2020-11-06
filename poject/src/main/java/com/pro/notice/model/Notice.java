@@ -75,4 +75,16 @@ public class Notice {
     public void setNstatus(Integer nstatus) {
         this.nstatus = nstatus;
     }
+
+    @Override
+    public String toString() {
+        return "Notice{" +
+                "nid=" + nid +
+                ", nname='" + nname + '\'' +
+                ", abst='" + abst + '\'' +
+                ", ncontent='" + ncontent + '\'' +
+                ", ntime='" + ntime + '\'' +
+                ", nstatus=" + nstatus +
+                '}';
+    }
 }
