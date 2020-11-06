@@ -11,6 +11,15 @@ import com.pro.contract.service.ContractService;
  */
 public class ContractServiceImpl implements ContractService {
     private ContractMapper contractMapper;
+
+    public ContractMapper getContractMapper() {
+        return contractMapper;
+    }
+
+    public void setContractMapper(ContractMapper contractMapper) {
+        this.contractMapper = contractMapper;
+    }
+
     @Override
     public int deleteByPrimaryKey(Integer id) {
         return 0;

@@ -7,9 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2d7abe1-848e-4aef-93e0-007091d1a3b8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/poject/src/main/java/com/pro/contract/controller/ContractController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/poject/src/main/java/com/pro/contract/service/ContractService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/poject/src/main/java/com/pro/contract/service/impl/ContractServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/poject/src/main/java/com/pro/contract/service/impl/ContractServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/poject/src/main/java/com/pro/contract/service/impl/ContractServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -255,12 +254,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1604572801182</updated>
-      <workItem from="1604572805035" duration="6617000" />
+      <workItem from="1604572805035" duration="7034000" />
     </task>
+    <task id="LOCAL-00001" summary="....">
+      <created>1604643674483</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1604643674483</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="...." />
+    <option name="LAST_COMMIT_MESSAGE" value="...." />
   </component>
   <component name="WindowStateProjectService">
     <state x="575" y="22" key="#Project_Structure" timestamp="1604577075395">
@@ -279,10 +290,10 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="444" y="96" key="#com.intellij.j2ee.appServerIntegrations.ApplicationServersConfigurable/0.0.1536.864@0.0.1536.864" timestamp="1604577054393" />
-    <state x="469" y="34" key="CommitChangelistDialog2" timestamp="1604576047235">
+    <state x="469" y="34" key="CommitChangelistDialog2" timestamp="1604643672028">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state x="469" y="34" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1604576047235" />
+    <state x="469" y="34" key="CommitChangelistDialog2/0.0.1536.864@0.0.1536.864" timestamp="1604643672028" />
     <state x="763" y="119" key="FileChooserDialogImpl" timestamp="1604577389734">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
@@ -343,9 +354,17 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="498" y="20" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1604577634927" />
+    <state x="361" y="168" key="Vcs.Push.Dialog.v2" timestamp="1604644049299">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="361" y="168" key="Vcs.Push.Dialog.v2/0.0.1536.864@0.0.1536.864" timestamp="1604644049299" />
     <state x="69" y="0" width="627" height="849" key="dock-window-1" timestamp="1604642640304">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="69" y="0" width="627" height="849" key="dock-window-1/0.0.1536.864@0.0.1536.864" timestamp="1604642640304" />
+    <state x="502" y="234" key="git4idea.merge.GitPullDialog" timestamp="1604643883057">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="502" y="234" key="git4idea.merge.GitPullDialog/0.0.1536.864@0.0.1536.864" timestamp="1604643883057" />
   </component>
 </project>
