@@ -22,31 +22,31 @@ public class ContractServiceImpl implements ContractService {
 
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        return 0;
+        return contractMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public int insert(Contract record) {
-        return 0;
+        return contractMapper.insert(record);
     }
 
     @Override
     public int insertSelective(Contract record) {
-        return 0;
+        return contractMapper.insertSelective(record);
     }
 
     @Override
     public Contract selectByPrimaryKey(Integer id) {
-        return null;
+        return contractMapper.selectByPrimaryKey(id);
     }
 
     @Override
     public int updateByPrimaryKeySelective(Contract record) {
-        return 0;
+        return contractMapper.updateByPrimaryKeySelective(record);
     }
 
     @Override
     public int updateByPrimaryKey(Contract record) {
-        return 0;
+        return contractMapper.updateByPrimaryKey(record);
     }
 }
