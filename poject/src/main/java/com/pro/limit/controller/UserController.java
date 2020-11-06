@@ -30,8 +30,8 @@ public class UserController {
     private String list(User u) {
         User login = userService.login(u);
         if (login.getStatus() == 1) {
-            return "登录成功";
+            return "success";
         }
-        return "";
+        return "false";
     }
 }
