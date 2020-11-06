@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pro.trainingapproval.mapper.TrainingprogramsMapper" >
+  <resultMap id="BaseResultMap" type="com.pro.trainingapproval.model.Trainingprograms" >
+    <constructor >
+      <idArg column="tpid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="trp" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="trinfo" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="trm" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="trid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    tpid, trp, trinfo, trm, trid, status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from trainingprograms
+    where tpid = #{tpid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from trainingprograms
+    where tpid = #{tpid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pro.trainingapproval.model.Trainingprograms" >
+    insert into trainingprograms (tpid, trp, trinfo, 
+      trm, trid, status)
+    values (#{tpid,jdbcType=INTEGER}, #{trp,jdbcType=VARCHAR}, #{trinfo,jdbcType=VARCHAR}, 
+      #{trm,jdbcType=INTEGER}, #{trid,jdbcType=INTEGER}, #{status,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pro.trainingapproval.model.Trainingprograms" >
+    insert into trainingprograms
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="tpid != null" >
+        tpid,
+      </if>
+      <if test="trp != null" >
+        trp,
+      </if>
+      <if test="trinfo != null" >
+        trinfo,
+      </if>
+      <if test="trm != null" >
+        trm,
+      </if>
+      <if test="trid != null" >
+        trid,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="tpid != null" >
+        #{tpid,jdbcType=INTEGER},
+      </if>
+      <if test="trp != null" >
+        #{trp,jdbcType=VARCHAR},
+      </if>
+      <if test="trinfo != null" >
+        #{trinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="trm != null" >
+        #{trm,jdbcType=INTEGER},
+      </if>
+      <if test="trid != null" >
+        #{trid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pro.trainingapproval.model.Trainingprograms" >
+    update trainingprograms
+    <set >
+      <if test="trp != null" >
+        trp = #{trp,jdbcType=VARCHAR},
+      </if>
+      <if test="trinfo != null" >
+        trinfo = #{trinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="trm != null" >
+        trm = #{trm,jdbcType=INTEGER},
+      </if>
+      <if test="trid != null" >
+        trid = #{trid,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+    </set>
+    where tpid = #{tpid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pro.trainingapproval.model.Trainingprograms" >
+    update trainingprograms
+    set trp = #{trp,jdbcType=VARCHAR},
+      trinfo = #{trinfo,jdbcType=VARCHAR},
+      trm = #{trm,jdbcType=INTEGER},
+      trid = #{trid,jdbcType=INTEGER},
+      status = #{status,jdbcType=INTEGER}
+    where tpid = #{tpid,jdbcType=INTEGER}
+  </update>
+</mapper>

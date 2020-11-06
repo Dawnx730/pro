@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pro.rem.mapper.SalaryMapper" >
+  <resultMap id="BaseResultMap" type="com.pro.rem.model.Salary" >
+    <constructor >
+      <arg column="userid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="bwage" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="housefund" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="pension" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="health" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="unemployment" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="reimbursement" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="paward" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <insert id="insert" parameterType="com.pro.rem.model.Salary" >
+    insert into salary (userid, bwage, housefund, 
+      pension, health, unemployment, 
+      reimbursement, paward)
+    values (#{userid,jdbcType=INTEGER}, #{bwage,jdbcType=INTEGER}, #{housefund,jdbcType=INTEGER}, 
+      #{pension,jdbcType=INTEGER}, #{health,jdbcType=INTEGER}, #{unemployment,jdbcType=INTEGER}, 
+      #{reimbursement,jdbcType=INTEGER}, #{paward,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.pro.rem.model.Salary" >
+    insert into salary
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        userid,
+      </if>
+      <if test="bwage != null" >
+        bwage,
+      </if>
+      <if test="housefund != null" >
+        housefund,
+      </if>
+      <if test="pension != null" >
+        pension,
+      </if>
+      <if test="health != null" >
+        health,
+      </if>
+      <if test="unemployment != null" >
+        unemployment,
+      </if>
+      <if test="reimbursement != null" >
+        reimbursement,
+      </if>
+      <if test="paward != null" >
+        paward,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="bwage != null" >
+        #{bwage,jdbcType=INTEGER},
+      </if>
+      <if test="housefund != null" >
+        #{housefund,jdbcType=INTEGER},
+      </if>
+      <if test="pension != null" >
+        #{pension,jdbcType=INTEGER},
+      </if>
+      <if test="health != null" >
+        #{health,jdbcType=INTEGER},
+      </if>
+      <if test="unemployment != null" >
+        #{unemployment,jdbcType=INTEGER},
+      </if>
+      <if test="reimbursement != null" >
+        #{reimbursement,jdbcType=INTEGER},
+      </if>
+      <if test="paward != null" >
+        #{paward,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+</mapper>

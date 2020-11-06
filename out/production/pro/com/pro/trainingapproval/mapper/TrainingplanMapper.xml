@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pro.trainingapproval.mapper.TrainingplanMapper" >
+  <resultMap id="BaseResultMap" type="com.pro.trainingapproval.model.Trainingplan" >
+    <constructor >
+      <idArg column="trid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="trf" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="trd" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="trn" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="trst" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="trc" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="pstatus" jdbcType="INTEGER" javaType="java.lang.Integer" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    trid, trf, trd, trn, trst, trc, pstatus
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from trainingplan
+    where trid = #{trid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from trainingplan
+    where trid = #{trid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pro.trainingapproval.model.Trainingplan" >
+    insert into trainingplan (trid, trf, trd, 
+      trn, trst, trc, pstatus
+      )
+    values (#{trid,jdbcType=INTEGER}, #{trf,jdbcType=VARCHAR}, #{trd,jdbcType=VARCHAR}, 
+      #{trn,jdbcType=VARCHAR}, #{trst,jdbcType=VARCHAR}, #{trc,jdbcType=VARCHAR}, #{pstatus,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.pro.trainingapproval.model.Trainingplan" >
+    insert into trainingplan
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="trid != null" >
+        trid,
+      </if>
+      <if test="trf != null" >
+        trf,
+      </if>
+      <if test="trd != null" >
+        trd,
+      </if>
+      <if test="trn != null" >
+        trn,
+      </if>
+      <if test="trst != null" >
+        trst,
+      </if>
+      <if test="trc != null" >
+        trc,
+      </if>
+      <if test="pstatus != null" >
+        pstatus,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="trid != null" >
+        #{trid,jdbcType=INTEGER},
+      </if>
+      <if test="trf != null" >
+        #{trf,jdbcType=VARCHAR},
+      </if>
+      <if test="trd != null" >
+        #{trd,jdbcType=VARCHAR},
+      </if>
+      <if test="trn != null" >
+        #{trn,jdbcType=VARCHAR},
+      </if>
+      <if test="trst != null" >
+        #{trst,jdbcType=VARCHAR},
+      </if>
+      <if test="trc != null" >
+        #{trc,jdbcType=VARCHAR},
+      </if>
+      <if test="pstatus != null" >
+        #{pstatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pro.trainingapproval.model.Trainingplan" >
+    update trainingplan
+    <set >
+      <if test="trf != null" >
+        trf = #{trf,jdbcType=VARCHAR},
+      </if>
+      <if test="trd != null" >
+        trd = #{trd,jdbcType=VARCHAR},
+      </if>
+      <if test="trn != null" >
+        trn = #{trn,jdbcType=VARCHAR},
+      </if>
+      <if test="trst != null" >
+        trst = #{trst,jdbcType=VARCHAR},
+      </if>
+      <if test="trc != null" >
+        trc = #{trc,jdbcType=VARCHAR},
+      </if>
+      <if test="pstatus != null" >
+        pstatus = #{pstatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where trid = #{trid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pro.trainingapproval.model.Trainingplan" >
+    update trainingplan
+    set trf = #{trf,jdbcType=VARCHAR},
+      trd = #{trd,jdbcType=VARCHAR},
+      trn = #{trn,jdbcType=VARCHAR},
+      trst = #{trst,jdbcType=VARCHAR},
+      trc = #{trc,jdbcType=VARCHAR},
+      pstatus = #{pstatus,jdbcType=INTEGER}
+    where trid = #{trid,jdbcType=INTEGER}
+  </update>
+</mapper>

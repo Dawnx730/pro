@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pro.rem.mapper.TimecardMapper" >
+  <resultMap id="BaseResultMap" type="com.pro.rem.model.Timecard" >
+    <constructor >
+      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="fid" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="work" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="duty" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="month" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="tremark" jdbcType="VARCHAR" javaType="java.lang.String" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, fid, work, duty, month, tremark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from timecard
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from timecard
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.pro.rem.model.Timecard" >
+    insert into timecard (id, fid, work, 
+      duty, month, tremark
+      )
+    values (#{id,jdbcType=INTEGER}, #{fid,jdbcType=INTEGER}, #{work,jdbcType=VARCHAR}, 
+      #{duty,jdbcType=VARCHAR}, #{month,jdbcType=VARCHAR}, #{tremark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.pro.rem.model.Timecard" >
+    insert into timecard
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="fid != null" >
+        fid,
+      </if>
+      <if test="work != null" >
+        work,
+      </if>
+      <if test="duty != null" >
+        duty,
+      </if>
+      <if test="month != null" >
+        month,
+      </if>
+      <if test="tremark != null" >
+        tremark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="fid != null" >
+        #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="work != null" >
+        #{work,jdbcType=VARCHAR},
+      </if>
+      <if test="duty != null" >
+        #{duty,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null" >
+        #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="tremark != null" >
+        #{tremark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.pro.rem.model.Timecard" >
+    update timecard
+    <set >
+      <if test="fid != null" >
+        fid = #{fid,jdbcType=INTEGER},
+      </if>
+      <if test="work != null" >
+        work = #{work,jdbcType=VARCHAR},
+      </if>
+      <if test="duty != null" >
+        duty = #{duty,jdbcType=VARCHAR},
+      </if>
+      <if test="month != null" >
+        month = #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="tremark != null" >
+        tremark = #{tremark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.pro.rem.model.Timecard" >
+    update timecard
+    set fid = #{fid,jdbcType=INTEGER},
+      work = #{work,jdbcType=VARCHAR},
+      duty = #{duty,jdbcType=VARCHAR},
+      month = #{month,jdbcType=VARCHAR},
+      tremark = #{tremark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
