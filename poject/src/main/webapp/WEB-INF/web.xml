@@ -16,6 +16,16 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
+    <!-- 解决cors跨域问题过滤器 -->
+    <filter>
+        <filter-name>corsFilter</filter-name>
+        <filter-class>com.pro.util.CorsFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>corsFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <!-- Spring和web项目集成end -->
 
 <!--    &lt;!&ndash; 防止Spring内存溢出监听器 &ndash;&gt;-->
