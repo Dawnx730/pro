@@ -28,6 +28,7 @@ public class UserController {
     @ResponseBody
     @RequestMapping(value = "/login", produces = "text/html;charset=UTF-8;")
     private String list(User u) {
+        System.out.println(111);
         User login = userService.login(u);
         if (login.getStatus() == 1) {
             return "success";
