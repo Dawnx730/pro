@@ -1,17 +1,12 @@
 package com.pro.limit.mapper;
 
 import com.pro.limit.model.SysRight;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+import java.util.Map;
+@Repository
 public interface SysRightMapper {
-    int deleteByPrimaryKey(Integer rightCode);
-
-    int insert(SysRight record);
-
-    int insertSelective(SysRight record);
-
-    SysRight selectByPrimaryKey(Integer rightCode);
-
-    int updateByPrimaryKeySelective(SysRight record);
-
-    int updateByPrimaryKey(SysRight record);
+    List<SysRight> TreeMenu(@Param("rightParentCode") Integer rightParentCode);
 }

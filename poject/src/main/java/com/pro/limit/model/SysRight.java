@@ -1,5 +1,8 @@
 package com.pro.limit.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 树形菜单栏
  */
@@ -18,6 +21,16 @@ public class SysRight {
 
     private Integer rightNodeType;
 
+    private List<SysRight> children=new ArrayList<>();
+
+    public List<SysRight> getChildren() {
+        return children;
+    }
+
+    public void setChildren(List<SysRight> children) {
+        this.children = children;
+    }
+
     public SysRight(Integer rightCode, Integer rightParentCode, String rightType, String rightText, String rightUrl, String rightTip, Integer rightNodeType) {
         this.rightCode = rightCode;
         this.rightParentCode = rightParentCode;
@@ -34,6 +47,20 @@ public class SysRight {
 
     public Integer getRightCode() {
         return rightCode;
+    }
+
+    @Override
+    public String toString() {
+        return "SysRight{" +
+                "rightCode=" + rightCode +
+                ", rightParentCode=" + rightParentCode +
+                ", rightType='" + rightType + '\'' +
+                ", rightText='" + rightText + '\'' +
+                ", rightUrl='" + rightUrl + '\'' +
+                ", rightTip='" + rightTip + '\'' +
+                ", rightNodeType=" + rightNodeType +
+                ", children=" + children +
+                '}';
     }
 
     public void setRightCode(Integer rightCode) {
