@@ -4,22 +4,22 @@
   <resultMap id="BaseResultMap" type="com.pro.rem.model.Salary" >
     <constructor >
       <arg column="userid" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="bwage" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="housefund" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="pension" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="health" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="unemployment" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="reimbursement" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="paward" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="bwage" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="housefund" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="reimbursement" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="paward" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="sastatus" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="overtime" jdbcType="REAL" javaType="java.lang.Float" />
+      <arg column="insur" jdbcType="REAL" javaType="java.lang.Float" />
     </constructor>
   </resultMap>
   <insert id="insert" parameterType="com.pro.rem.model.Salary" >
     insert into salary (userid, bwage, housefund, 
-      pension, health, unemployment, 
-      reimbursement, paward)
-    values (#{userid,jdbcType=INTEGER}, #{bwage,jdbcType=INTEGER}, #{housefund,jdbcType=INTEGER}, 
-      #{pension,jdbcType=INTEGER}, #{health,jdbcType=INTEGER}, #{unemployment,jdbcType=INTEGER}, 
-      #{reimbursement,jdbcType=INTEGER}, #{paward,jdbcType=INTEGER})
+      reimbursement, paward, sastatus, 
+      overtime, insur)
+    values (#{userid,jdbcType=INTEGER}, #{bwage,jdbcType=REAL}, #{housefund,jdbcType=REAL}, 
+      #{reimbursement,jdbcType=REAL}, #{paward,jdbcType=REAL}, #{sastatus,jdbcType=INTEGER}, 
+      #{overtime,jdbcType=REAL}, #{insur,jdbcType=REAL})
   </insert>
   <insert id="insertSelective" parameterType="com.pro.rem.model.Salary" >
     insert into salary
@@ -33,20 +33,20 @@
       <if test="housefund != null" >
         housefund,
       </if>
-      <if test="pension != null" >
-        pension,
-      </if>
-      <if test="health != null" >
-        health,
-      </if>
-      <if test="unemployment != null" >
-        unemployment,
-      </if>
       <if test="reimbursement != null" >
         reimbursement,
       </if>
       <if test="paward != null" >
         paward,
+      </if>
+      <if test="sastatus != null" >
+        sastatus,
+      </if>
+      <if test="overtime != null" >
+        overtime,
+      </if>
+      <if test="insur != null" >
+        insur,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -54,25 +54,25 @@
         #{userid,jdbcType=INTEGER},
       </if>
       <if test="bwage != null" >
-        #{bwage,jdbcType=INTEGER},
+        #{bwage,jdbcType=REAL},
       </if>
       <if test="housefund != null" >
-        #{housefund,jdbcType=INTEGER},
-      </if>
-      <if test="pension != null" >
-        #{pension,jdbcType=INTEGER},
-      </if>
-      <if test="health != null" >
-        #{health,jdbcType=INTEGER},
-      </if>
-      <if test="unemployment != null" >
-        #{unemployment,jdbcType=INTEGER},
+        #{housefund,jdbcType=REAL},
       </if>
       <if test="reimbursement != null" >
-        #{reimbursement,jdbcType=INTEGER},
+        #{reimbursement,jdbcType=REAL},
       </if>
       <if test="paward != null" >
-        #{paward,jdbcType=INTEGER},
+        #{paward,jdbcType=REAL},
+      </if>
+      <if test="sastatus != null" >
+        #{sastatus,jdbcType=INTEGER},
+      </if>
+      <if test="overtime != null" >
+        #{overtime,jdbcType=REAL},
+      </if>
+      <if test="insur != null" >
+        #{insur,jdbcType=REAL},
       </if>
     </trim>
   </insert>

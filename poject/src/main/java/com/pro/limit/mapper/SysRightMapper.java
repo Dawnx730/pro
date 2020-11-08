@@ -8,5 +8,5 @@ import java.util.List;
 import java.util.Map;
 @Repository
 public interface SysRightMapper {
-    List<SysRight> TreeMenu(@Param("rightParentCode") Integer rightParentCode);
+    List<SysRight> TreeMenu();
 }

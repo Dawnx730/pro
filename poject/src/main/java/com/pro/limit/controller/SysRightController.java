@@ -26,7 +26,7 @@ public class SysRightController {
     @ResponseBody
     @RequestMapping("/list")
     public List<SysRight> list() {
-        List<SysRight> sysRights = sysRightService.TreeMenu(1);
+        List<SysRight> sysRights = sysRightService.TreeMenu();
         return sysRights;
     }
 

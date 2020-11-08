@@ -1,35 +1,31 @@
 package com.pro.rem.model;
 
-
-/**
- * 薪酬管理
- */
 public class Salary {
     private Integer userid;
 
-    private Integer bwage;
+    private Float bwage;
 
-    private Integer housefund;
+    private Float housefund;
 
-    private Integer pension;
+    private Float reimbursement;
 
-    private Integer health;
+    private Float paward;
 
-    private Integer unemployment;
+    private Integer sastatus;
 
-    private Integer reimbursement;
+    private Float overtime;
 
-    private Integer paward;
+    private Float insur;
 
-    public Salary(Integer userid, Integer bwage, Integer housefund, Integer pension, Integer health, Integer unemployment, Integer reimbursement, Integer paward) {
+    public Salary(Integer userid, Float bwage, Float housefund, Float reimbursement, Float paward, Integer sastatus, Float overtime, Float insur) {
         this.userid = userid;
         this.bwage = bwage;
         this.housefund = housefund;
-        this.pension = pension;
-        this.health = health;
-        this.unemployment = unemployment;
         this.reimbursement = reimbursement;
         this.paward = paward;
+        this.sastatus = sastatus;
+        this.overtime = overtime;
+        this.insur = insur;
     }
 
     public Salary() {
@@ -44,59 +40,59 @@ public class Salary {
         this.userid = userid;
     }
 
-    public Integer getBwage() {
+    public Float getBwage() {
         return bwage;
     }
 
-    public void setBwage(Integer bwage) {
+    public void setBwage(Float bwage) {
         this.bwage = bwage;
     }
 
-    public Integer getHousefund() {
+    public Float getHousefund() {
         return housefund;
     }
 
-    public void setHousefund(Integer housefund) {
+    public void setHousefund(Float housefund) {
         this.housefund = housefund;
     }
 
-    public Integer getPension() {
-        return pension;
-    }
-
-    public void setPension(Integer pension) {
-        this.pension = pension;
-    }
-
-    public Integer getHealth() {
-        return health;
-    }
-
-    public void setHealth(Integer health) {
-        this.health = health;
-    }
-
-    public Integer getUnemployment() {
-        return unemployment;
-    }
-
-    public void setUnemployment(Integer unemployment) {
-        this.unemployment = unemployment;
-    }
-
-    public Integer getReimbursement() {
+    public Float getReimbursement() {
         return reimbursement;
     }
 
-    public void setReimbursement(Integer reimbursement) {
+    public void setReimbursement(Float reimbursement) {
         this.reimbursement = reimbursement;
     }
 
-    public Integer getPaward() {
+    public Float getPaward() {
         return paward;
     }
 
-    public void setPaward(Integer paward) {
+    public void setPaward(Float paward) {
         this.paward = paward;
+    }
+
+    public Integer getSastatus() {
+        return sastatus;
+    }
+
+    public void setSastatus(Integer sastatus) {
+        this.sastatus = sastatus;
+    }
+
+    public Float getOvertime() {
+        return overtime;
+    }
+
+    public void setOvertime(Float overtime) {
+        this.overtime = overtime;
+    }
+
+    public Float getInsur() {
+        return insur;
+    }
+
+    public void setInsur(Float insur) {
+        this.insur = insur;
     }
 }

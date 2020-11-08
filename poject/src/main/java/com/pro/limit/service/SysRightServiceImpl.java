@@ -17,8 +17,9 @@ public class SysRightServiceImpl implements SysRightService {
 
     @Autowired
     private SysRightMapper sysRightMapper;
+
     @Override
-    public List<SysRight> TreeMenu(Integer rightParentCode) {
-        return sysRightMapper.TreeMenu(rightParentCode);
+    public List<SysRight> TreeMenu() {
+        return sysRightMapper.TreeMenu();
     }
 }

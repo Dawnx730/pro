@@ -1,40 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.pro.limit.mapper.SysRightMapper" >
-  <resultMap id="BaseResultMap" type="com.pro.limit.model.SysRight" >
-    <constructor >
-      <idArg column="right_code" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="right_parent_code" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="right_type" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="right_text" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="right_url" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="right_tip" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="right_node_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
-    </constructor>
-  </resultMap>
+<mapper namespace="com.pro.limit.mapper.SysRightMapper">
+    <resultMap id="BaseResultMap" type="com.pro.limit.model.SysRight">
+        <constructor>
+            <idArg column="right_code" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="right_parent_code" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="right_type" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="right_text" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="right_url" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="right_tip" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="right_node_type" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        </constructor>
+    </resultMap>
 
-  <!--一对多映射-->
-  <resultMap id="SysRight" type="com.pro.limit.model.SysRight">
-    <result property="rightCode" column="right_code"></result>
-    <result property="rightParentCode" column="right_parent_code"></result>
-    <result property="rightType" column="right_type"></result>
-    <result property="rightText" column="right_text"></result>
-    <result property="rightUrl" column="right_url"></result>
-    <result property="rightTip" column="right_tip"></result>
-    <result property="rightNodeType" column="right_node_type"></result>
-    <!--rightCode作为参数递归调用TreeMenu方法-->
-    <collection property="children" column="rightCode" select="TreeMenu" ofType="com.pro.limit.model.SysRight">
-    </collection>
-  </resultMap>
+    <!--一对多映射-->
+    <resultMap id="SysRight" type="com.pro.limit.model.SysRight">
+        <result property="rightCode" column="right_code"></result>
+        <result property="rightParentCode" column="right_parent_code"></result>
+        <result property="rightType" column="right_type"></result>
+        <result property="rightText" column="right_text"></result>
+        <result property="rightUrl" column="right_url"></result>
+        <result property="rightTip" column="right_tip"></result>
+        <result property="rightNodeType" column="right_node_type"></result>
+        <!--rightCode作为参数递归调用TreeMenu方法-->
+        <collection property="children" column="right_code" select="MenuChlidren" ofType="com.pro.limit.model.SysRight" />
+    </resultMap>
 
-  <sql id="Base_Column_List" >
+    <sql id="Base_Column_List">
     right_code, right_parent_code, right_type, right_text, right_url, right_tip, right_node_type
   </sql>
-  <!--加载树形菜单-->
-  <select id="TreeMenu" resultMap="SysRight" parameterType="java.lang.Integer" >
+    <!--查询根级节点-->
+    <select id="TreeMenu" resultMap="SysRight">
     select
     *
     from sys_right
-    where right_parent_code = #{rightParentCode}
+    where right_parent_code is null
   </select>
+    <!--查询所有子节点-->
+    <select id="MenuChlidren" resultMap="SysRight">
+    select
+    *
+    from sys_right
+    where right_parent_code = #{rightCode}
+  </select>
+
 </mapper>

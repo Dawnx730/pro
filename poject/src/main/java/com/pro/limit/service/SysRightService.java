@@ -12,5 +12,5 @@ import java.util.Map;
  */
 public interface SysRightService {
 
-    List<SysRight> TreeMenu(Integer rightParentCode);
+    List<SysRight> TreeMenu();
 }
