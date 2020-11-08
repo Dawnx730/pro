@@ -23,6 +23,7 @@ public class SysRightController {
     @Autowired
     private SysRightService sysRightService;
 
+
     @ResponseBody
     @RequestMapping("/list")
     public List<SysRight> list() {

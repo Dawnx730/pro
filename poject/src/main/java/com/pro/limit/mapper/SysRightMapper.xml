@@ -34,7 +34,7 @@
     select
     *
     from sys_right
-    where right_parent_code is null
+    where right_parent_code =0
   </select>
     <!--查询所有子节点-->
     <select id="MenuChlidren" resultMap="SysRight">
