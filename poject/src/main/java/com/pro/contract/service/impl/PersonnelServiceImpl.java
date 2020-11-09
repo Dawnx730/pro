@@ -4,6 +4,8 @@ import com.pro.contract.mapper.PersonnelMapper;
 import com.pro.contract.model.Personnel;
 import com.pro.contract.service.PersonnelService;
 
+import java.util.List;
+
 /**
  * @author wang
  * @site https://blog.csdn.net/qq_45432593
@@ -48,5 +50,10 @@ public class PersonnelServiceImpl implements PersonnelService {
     @Override
     public int updateByPrimaryKey(Personnel record) {
         return personnelMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<Personnel> selectPersonnel(List pid) {
+        return personnelMapper.selectPersonnel(pid);
     }
 }

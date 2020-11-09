@@ -2,6 +2,8 @@ package com.pro.contract.service;
 
 import com.pro.contract.model.Contract;
 
+import java.util.List;
+
 /**
  * @author wang
  * @site https://blog.csdn.net/qq_45432593
@@ -19,4 +21,6 @@ public interface ContractService {
     int updateByPrimaryKeySelective(Contract record);
 
     int updateByPrimaryKey(Contract record);
+
+    List<Contract> selectContract (List id);
 }

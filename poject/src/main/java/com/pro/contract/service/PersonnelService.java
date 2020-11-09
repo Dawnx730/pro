@@ -1,6 +1,10 @@
 package com.pro.contract.service;
 
+import com.pro.contract.model.Contract;
 import com.pro.contract.model.Personnel;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @author wang
@@ -19,4 +23,13 @@ public interface PersonnelService {
     int updateByPrimaryKeySelective(Personnel record);
 
     int updateByPrimaryKey(Personnel record);
+
+    List<Personnel> selectPersonnel(List pid);
+
+    /**
+     * 模糊查询
+     * @return
+     */
+    List<Contract> selectContractLike(@Param("cname") String cname);
+
 }
