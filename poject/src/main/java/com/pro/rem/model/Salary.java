@@ -11,21 +11,24 @@ public class Salary {
 
     private Float paward;
 
-    private Integer sastatus;
-
     private Float overtime;
 
     private Float insur;
 
-    public Salary(Integer userid, Float bwage, Float housefund, Float reimbursement, Float paward, Integer sastatus, Float overtime, Float insur) {
+    private Integer sastatus;
+
+    private Integer smonth;
+
+    public Salary(Integer userid, Float bwage, Float housefund, Float reimbursement, Float paward, Float overtime, Float insur, Integer sastatus, Integer smonth) {
         this.userid = userid;
         this.bwage = bwage;
         this.housefund = housefund;
         this.reimbursement = reimbursement;
         this.paward = paward;
-        this.sastatus = sastatus;
         this.overtime = overtime;
         this.insur = insur;
+        this.sastatus = sastatus;
+        this.smonth = smonth;
     }
 
     public Salary() {
@@ -72,14 +75,6 @@ public class Salary {
         this.paward = paward;
     }
 
-    public Integer getSastatus() {
-        return sastatus;
-    }
-
-    public void setSastatus(Integer sastatus) {
-        this.sastatus = sastatus;
-    }
-
     public Float getOvertime() {
         return overtime;
     }
@@ -94,5 +89,21 @@ public class Salary {
 
     public void setInsur(Float insur) {
         this.insur = insur;
+    }
+
+    public Integer getSastatus() {
+        return sastatus;
+    }
+
+    public void setSastatus(Integer sastatus) {
+        this.sastatus = sastatus;
+    }
+
+    public Integer getSmonth() {
+        return smonth;
+    }
+
+    public void setSmonth(Integer smonth) {
+        this.smonth = smonth;
     }
 }
