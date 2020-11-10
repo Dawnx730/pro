@@ -12,17 +12,18 @@
       <arg column="insur" jdbcType="REAL" javaType="java.lang.Float" />
       <arg column="sastatus" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="smonth" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="syear" jdbcType="INTEGER" javaType="java.lang.Integer" />
     </constructor>
   </resultMap>
   <insert id="insert" parameterType="com.pro.rem.model.Salary" >
     insert into salary (userid, bwage, housefund, 
       reimbursement, paward, overtime, 
-      insur, sastatus, smonth
-      )
+      insur, sastatus, smonth, 
+      syear)
     values (#{userid,jdbcType=INTEGER}, #{bwage,jdbcType=REAL}, #{housefund,jdbcType=REAL}, 
       #{reimbursement,jdbcType=REAL}, #{paward,jdbcType=REAL}, #{overtime,jdbcType=REAL}, 
-      #{insur,jdbcType=REAL}, #{sastatus,jdbcType=INTEGER}, #{smonth,jdbcType=INTEGER}
-      )
+      #{insur,jdbcType=REAL}, #{sastatus,jdbcType=INTEGER}, #{smonth,jdbcType=INTEGER}, 
+      #{syear,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.pro.rem.model.Salary" >
     insert into salary
@@ -54,6 +55,9 @@
       <if test="smonth != null" >
         smonth,
       </if>
+      <if test="syear != null" >
+        syear,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="userid != null" >
@@ -82,6 +86,9 @@
       </if>
       <if test="smonth != null" >
         #{smonth,jdbcType=INTEGER},
+      </if>
+      <if test="syear != null" >
+        #{syear,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>

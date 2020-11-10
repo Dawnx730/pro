@@ -110,4 +110,10 @@
         from user
         where username = #{username} and password =#{password}
     </select>
+<!--    通过用户名查询权限-->
+    <select id="getLevel" resultType="java.lang.Integer" parameterType="com.pro.limit.model.User">
+        select level
+        from user
+        where username = #{username}
+    </select>
 </mapper>

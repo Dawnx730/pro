@@ -22,4 +22,5 @@ public class SysRightServiceImpl implements SysRightService {
     public List<SysRight> TreeMenu() {
         return sysRightMapper.TreeMenu();
     }
+
 }

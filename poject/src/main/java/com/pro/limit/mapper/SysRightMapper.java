@@ -10,4 +10,7 @@ import java.util.Map;
 public interface SysRightMapper {
 //    左侧树形菜单栏
     List<SysRight> TreeMenu();
+
+
+
 }
