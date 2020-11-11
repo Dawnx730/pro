@@ -3,7 +3,6 @@ package com.pro.limit.controller;
 import com.pro.limit.model.SysRight;
 import com.pro.limit.model.User;
 import com.pro.limit.service.SysRightService;
-import com.pro.limit.service.SysRightServiceImpl;
 import com.pro.limit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,8 +11,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
 
 /**
  * @author xiaoyang

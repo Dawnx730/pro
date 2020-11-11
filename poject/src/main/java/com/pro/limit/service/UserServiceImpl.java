@@ -5,6 +5,8 @@ import com.pro.limit.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * @author xiaoyang
  * @create  2020-11-05 9:32
@@ -56,7 +58,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Integer getIdByName(User user) {
-        return userMapper.getIdByName(user);
+    public Integer getIdByAccount(User user) {
+        return userMapper.getIdByAccount(user);
+    }
+
+    @Override
+    public Integer getDeptByAccount(User user) {
+        return userMapper.getDeptByAccount(user);
+    }
+
+    @Override
+    public String getNameByAccount(User user) {
+        return userMapper.getNameByAccount(user);
+    }
+
+    @Override
+    public List<User> getAllByAccount(User user) {
+        return userMapper.getAllByAccount(user);
     }
 }

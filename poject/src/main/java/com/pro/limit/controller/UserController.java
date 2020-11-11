@@ -1,12 +1,14 @@
 package com.pro.limit.controller;
 
+import com.pro.limit.model.Dept;
 import com.pro.limit.model.User;
 import com.pro.limit.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 /**
  * @author xiaoyang
@@ -30,16 +32,41 @@ public class UserController {
     @RequestMapping(value = "/login", produces = "text/html;charset=UTF-8;")
     private String list(User u) {
         User login = userService.login(u);
+        System.out.println("+++++++++++++++++++++++++==");
         if (login.getStatus() == 1) {
             return login + "";
         }
         return null;
     }
 
+    //    通过账号查询全部信息
+    @ResponseBody
+    @RequestMapping("/getAllByAccount")
+    public List<User> getAllByAccount(User user) {
+        List<User> allByAccount = userService.getAllByAccount(user);
+        return allByAccount;
+    }
+
+    //    查询用户id
     @ResponseBody
     @RequestMapping("/getId")
-    public int getIdByName(User user) {
-        Integer idByName = userService.getIdByName(user);
-        return idByName;
+    public int getId(User user) {
+        Integer getId = userService.getIdByAccount(user);
+        return getId;
+    }
+
+    //查询用户名
+    @ResponseBody
+    @RequestMapping("/getName")
+    public String getName(User user) {
+        String getname = userService.getNameByAccount(user);
+        return getname;
+    }
+    //  通过账号查询权限
+    @ResponseBody
+    @RequestMapping("/getLevel")
+    public Integer getLevel(User user) {
+        Integer level = userService.getLevel(user);
+        return level;
     }
 }

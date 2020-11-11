@@ -3,7 +3,7 @@ package com.pro.limit.model;
 public class User {
     private Integer userid;
 
-    private String username;
+    private String account;
 
     private String password;
 
@@ -13,13 +13,16 @@ public class User {
 
     private Integer fid;
 
-    public User(Integer userid, String username, String password, Integer level, Integer status, Integer fid) {
+    private String username;
+
+    public User(Integer userid, String account, String password, Integer level, Integer status, Integer fid, String username) {
         this.userid = userid;
-        this.username = username;
+        this.account = account;
         this.password = password;
         this.level = level;
         this.status = status;
         this.fid = fid;
+        this.username = username;
     }
 
     public User() {
@@ -34,12 +37,12 @@ public class User {
         this.userid = userid;
     }
 
-    public String getUsername() {
-        return username;
+    public String getAccount() {
+        return account;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setAccount(String account) {
+        this.account = account;
     }
 
     public String getPassword() {
@@ -74,15 +77,11 @@ public class User {
         this.fid = fid;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "userid=" + userid +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", level=" + level +
-                ", status=" + status +
-                ", fid=" + fid +
-                '}';
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
