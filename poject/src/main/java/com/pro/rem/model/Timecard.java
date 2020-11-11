@@ -1,8 +1,5 @@
 package com.pro.rem.model;
 
-/**
- * 打卡表
- */
 public class Timecard {
     private Integer id;
 
@@ -10,18 +7,24 @@ public class Timecard {
 
     private String work;
 
+    private String ywork;
+
     private String duty;
 
     private String month;
 
+    private String tyear;
+
     private String tremark;
 
-    public Timecard(Integer id, Integer fid, String work, String duty, String month, String tremark) {
+    public Timecard(Integer id, Integer fid, String work, String ywork, String duty, String month, String tyear, String tremark) {
         this.id = id;
         this.fid = fid;
         this.work = work;
+        this.ywork = ywork;
         this.duty = duty;
         this.month = month;
+        this.tyear = tyear;
         this.tremark = tremark;
     }
 
@@ -53,6 +56,14 @@ public class Timecard {
         this.work = work;
     }
 
+    public String getYwork() {
+        return ywork;
+    }
+
+    public void setYwork(String ywork) {
+        this.ywork = ywork;
+    }
+
     public String getDuty() {
         return duty;
     }
@@ -67,6 +78,14 @@ public class Timecard {
 
     public void setMonth(String month) {
         this.month = month;
+    }
+
+    public String getTyear() {
+        return tyear;
+    }
+
+    public void setTyear(String tyear) {
+        this.tyear = tyear;
     }
 
     public String getTremark() {

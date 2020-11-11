@@ -6,13 +6,15 @@
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="fid" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="work" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="ywork" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="duty" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="month" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="tyear" jdbcType="VARCHAR" javaType="java.lang.String" />
       <arg column="tremark" jdbcType="VARCHAR" javaType="java.lang.String" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List" >
-    id, fid, work, duty, month, tremark
+    id, fid, work, ywork, duty, month, tyear, tremark
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -26,11 +28,11 @@
   </delete>
   <insert id="insert" parameterType="com.pro.rem.model.Timecard" >
     insert into timecard (id, fid, work, 
-      duty, month, tremark
-      )
+      ywork, duty, month, 
+      tyear, tremark)
     values (#{id,jdbcType=INTEGER}, #{fid,jdbcType=INTEGER}, #{work,jdbcType=VARCHAR}, 
-      #{duty,jdbcType=VARCHAR}, #{month,jdbcType=VARCHAR}, #{tremark,jdbcType=VARCHAR}
-      )
+      #{ywork,jdbcType=VARCHAR}, #{duty,jdbcType=VARCHAR}, #{month,jdbcType=VARCHAR}, 
+      #{tyear,jdbcType=VARCHAR}, #{tremark,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.pro.rem.model.Timecard" >
     insert into timecard
@@ -44,11 +46,17 @@
       <if test="work != null" >
         work,
       </if>
+      <if test="ywork != null" >
+        ywork,
+      </if>
       <if test="duty != null" >
         duty,
       </if>
       <if test="month != null" >
         month,
+      </if>
+      <if test="tyear != null" >
+        tyear,
       </if>
       <if test="tremark != null" >
         tremark,
@@ -64,11 +72,17 @@
       <if test="work != null" >
         #{work,jdbcType=VARCHAR},
       </if>
+      <if test="ywork != null" >
+        #{ywork,jdbcType=VARCHAR},
+      </if>
       <if test="duty != null" >
         #{duty,jdbcType=VARCHAR},
       </if>
       <if test="month != null" >
         #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="tyear != null" >
+        #{tyear,jdbcType=VARCHAR},
       </if>
       <if test="tremark != null" >
         #{tremark,jdbcType=VARCHAR},
@@ -84,11 +98,17 @@
       <if test="work != null" >
         work = #{work,jdbcType=VARCHAR},
       </if>
+      <if test="ywork != null" >
+        ywork = #{ywork,jdbcType=VARCHAR},
+      </if>
       <if test="duty != null" >
         duty = #{duty,jdbcType=VARCHAR},
       </if>
       <if test="month != null" >
         month = #{month,jdbcType=VARCHAR},
+      </if>
+      <if test="tyear != null" >
+        tyear = #{tyear,jdbcType=VARCHAR},
       </if>
       <if test="tremark != null" >
         tremark = #{tremark,jdbcType=VARCHAR},
@@ -100,8 +120,10 @@
     update timecard
     set fid = #{fid,jdbcType=INTEGER},
       work = #{work,jdbcType=VARCHAR},
+      ywork = #{ywork,jdbcType=VARCHAR},
       duty = #{duty,jdbcType=VARCHAR},
       month = #{month,jdbcType=VARCHAR},
+      tyear = #{tyear,jdbcType=VARCHAR},
       tremark = #{tremark,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>

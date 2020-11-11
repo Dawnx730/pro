@@ -49,4 +49,14 @@ public class UserServiceImpl implements UserService {
     public User login(User user) {
         return userMapper.login(user);
     }
+
+    @Override
+    public Integer getLevel(User user) {
+        return userMapper.getLevel(user);
+    }
+
+    @Override
+    public Integer getIdByName(User user) {
+        return userMapper.getIdByName(user);
+    }
 }

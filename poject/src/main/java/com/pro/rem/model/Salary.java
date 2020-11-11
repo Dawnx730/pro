@@ -19,7 +19,11 @@ public class Salary {
 
     private Integer smonth;
 
-    public Salary(Integer userid, Float bwage, Float housefund, Float reimbursement, Float paward, Float overtime, Float insur, Integer sastatus, Integer smonth) {
+    private Integer syear;
+
+    private Float sum;
+
+    public Salary(Integer userid, Float bwage, Float housefund, Float reimbursement, Float paward, Float overtime, Float insur, Integer sastatus, Integer smonth, Integer syear, Float sum) {
         this.userid = userid;
         this.bwage = bwage;
         this.housefund = housefund;
@@ -29,6 +33,8 @@ public class Salary {
         this.insur = insur;
         this.sastatus = sastatus;
         this.smonth = smonth;
+        this.syear = syear;
+        this.sum = sum;
     }
 
     public Salary() {
@@ -105,5 +111,21 @@ public class Salary {
 
     public void setSmonth(Integer smonth) {
         this.smonth = smonth;
+    }
+
+    public Integer getSyear() {
+        return syear;
+    }
+
+    public void setSyear(Integer syear) {
+        this.syear = syear;
+    }
+
+    public Float getSum() {
+        return sum;
+    }
+
+    public void setSum(Float sum) {
+        this.sum = sum;
     }
 }

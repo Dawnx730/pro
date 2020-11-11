@@ -20,4 +20,8 @@ public interface UserService {
     int updateByPrimaryKey(User record);
 
     User login(User user);
+
+    Integer getLevel(User user);
+
+    Integer getIdByName(User user);
 }

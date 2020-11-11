@@ -23,8 +23,10 @@
         <result property="rightTip" column="right_tip"></result>
         <result property="rightNodeType" column="right_node_type"></result>
         <!--rightCode作为参数递归调用TreeMenu方法-->
-        <collection property="children" column="right_code" select="MenuChlidren" ofType="com.pro.limit.model.SysRight" />
+        <collection property="children" column="right_code" select="MenuChlidren"
+                    ofType="com.pro.limit.model.SysRight"/>
     </resultMap>
+
 
     <sql id="Base_Column_List">
     right_code, right_parent_code, right_type, right_text, right_url, right_tip, right_node_type

@@ -22,17 +22,24 @@ public class UserController {
 
     /**
      * 登录验证
+     *
      * @param u
      * @return
      */
     @ResponseBody
     @RequestMapping(value = "/login", produces = "text/html;charset=UTF-8;")
     private String list(User u) {
-        System.out.println(111);
         User login = userService.login(u);
         if (login.getStatus() == 1) {
-            return "success";
+            return login + "";
         }
-        return "false";
+        return null;
+    }
+
+    @ResponseBody
+    @RequestMapping("/getId")
+    public int getIdByName(User user) {
+        Integer idByName = userService.getIdByName(user);
+        return idByName;
     }
 }
