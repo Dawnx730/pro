@@ -105,4 +105,16 @@
       cstatus = #{cstatus,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <select id="selectContract" resultType="com.pro.contract.model.Contract" parameterType="java.util.List">
+    select  * from  personnel where id in
+    <foreach collection="id" item="id" open="(" close=")" separator=","></foreach>
+    #{id}
+  </select>
+
+  <select id="selectContractLike" resultType="com.pro.contract.model.Contract" parameterType="java.lang.String">
+     select * from contract where cname like #(cname)
+  </select>
+
+
 </mapper>

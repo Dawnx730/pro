@@ -18,6 +18,7 @@
     from personnel
     where pid = #{pid,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from personnel
     where pid = #{pid,jdbcType=INTEGER}
@@ -81,4 +82,10 @@
       reason = #{reason,jdbcType=VARCHAR}
     where pid = #{pid,jdbcType=INTEGER}
   </update>
+<!--forech标签的使用-->
+  <select id="selectPersonnel" resultType="com.pro.contract.model.Personnel" parameterType="java.util.List">
+      select  * from  personnel where pid in 
+      <foreach collection="pid" item="pid" open="(" close=")" separator=","></foreach>
+        #{pid}
+  </select>
 </mapper>
