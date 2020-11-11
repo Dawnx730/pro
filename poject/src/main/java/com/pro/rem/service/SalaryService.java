@@ -1,12 +1,16 @@
-package com.pro.rem.mapper;
+package com.pro.rem.service;
 
 import com.pro.limit.model.User;
 import com.pro.rem.model.Salary;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
-@Repository
-public interface SalaryMapper {
+
+/**
+ * @author xiaoyang
+ * @create  2020-11-10 22:22
+ */
+public interface SalaryService {
+
     int insert(Salary record);
 
     int insertSelective(Salary record);

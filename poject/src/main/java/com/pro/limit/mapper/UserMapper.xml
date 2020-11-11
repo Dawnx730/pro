@@ -116,4 +116,10 @@
         from user
         where username = #{username}
     </select>
+    <!--通过用户名查询id-->
+    <select id="getIdByName" resultType="java.lang.Integer" parameterType="com.pro.limit.model.User">
+        select userid
+        from user
+        where username = #{username}
+    </select>
 </mapper>

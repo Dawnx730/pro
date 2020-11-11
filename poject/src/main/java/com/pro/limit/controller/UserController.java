@@ -22,6 +22,7 @@ public class UserController {
 
     /**
      * 登录验证
+     *
      * @param u
      * @return
      */
@@ -30,8 +31,15 @@ public class UserController {
     private String list(User u) {
         User login = userService.login(u);
         if (login.getStatus() == 1) {
-            return "success";
+            return login + "";
         }
-        return "false";
+        return null;
+    }
+
+    @ResponseBody
+    @RequestMapping("/getId")
+    public int getIdByName(User user) {
+        Integer idByName = userService.getIdByName(user);
+        return idByName;
     }
 }

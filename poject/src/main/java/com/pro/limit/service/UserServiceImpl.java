@@ -54,4 +54,9 @@ public class UserServiceImpl implements UserService {
     public Integer getLevel(User user) {
         return userMapper.getLevel(user);
     }
+
+    @Override
+    public Integer getIdByName(User user) {
+        return userMapper.getIdByName(user);
+    }
 }

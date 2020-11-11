@@ -20,4 +20,6 @@ public interface UserMapper {
     User login(User user);
 
     Integer getLevel(User user);
+
+    Integer getIdByName(User user);
 }

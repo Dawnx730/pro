@@ -22,4 +22,6 @@ public interface UserService {
     User login(User user);
 
     Integer getLevel(User user);
+
+    Integer getIdByName(User user);
 }
