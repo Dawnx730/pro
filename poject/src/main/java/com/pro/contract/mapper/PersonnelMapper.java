@@ -1,5 +1,6 @@
 package com.pro.contract.mapper;
 
+import com.pro.contract.model.Contract;
 import com.pro.contract.model.Personnel;
 import org.apache.ibatis.annotations.Param;
 
@@ -25,4 +26,16 @@ public interface PersonnelMapper {
      * @return
      */
     List<Personnel> selectPersonnel(@Param("pid") List pid);
+
+    /**
+     * 模糊查询
+     * @return
+     */
+    List<Contract> selectContractLike(@Param("cname") String cname);
+
+
+
+
+
+
 }
