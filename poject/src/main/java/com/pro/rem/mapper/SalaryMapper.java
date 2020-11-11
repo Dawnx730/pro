@@ -5,11 +5,15 @@ import com.pro.rem.model.Salary;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
+
 @Repository
 public interface SalaryMapper {
     int insert(Salary record);
 
     int insertSelective(Salary record);
 
-    List<Salary> SelectById(User user);
+    List<Map>  SelectById(Map map);
+
+    List<Map> getAll(Map map);
 }

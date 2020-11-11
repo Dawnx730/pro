@@ -4,6 +4,7 @@ import com.pro.limit.model.User;
 import com.pro.rem.model.Salary;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author xiaoyang
@@ -15,5 +16,7 @@ public interface SalaryService {
 
     int insertSelective(Salary record);
 
-    List<Salary> SelectById(User user);
+    List<Map>  SelectById(Map map);
+
+    List<Map> getAll(Map map);
 }

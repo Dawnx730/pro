@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author xiaoyang
@@ -29,7 +30,12 @@ public class SalaryServiceImpl implements SalaryService {
     }
 
     @Override
-    public List<Salary> SelectById(User user) {
-        return salaryMapper.SelectById(user);
+    public  List<Map> SelectById(Map map) {
+        return salaryMapper.SelectById(map);
+    }
+
+    @Override
+    public List<Map>  getAll(Map map) {
+        return salaryMapper.getAll(map);
     }
 }

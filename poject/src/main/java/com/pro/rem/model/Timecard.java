@@ -9,20 +9,17 @@ public class Timecard {
 
     private String ywork;
 
-    private String duty;
-
     private String month;
 
     private String tyear;
 
     private String tremark;
 
-    public Timecard(Integer id, Integer fid, String work, String ywork, String duty, String month, String tyear, String tremark) {
+    public Timecard(Integer id, Integer fid, String work, String ywork, String month, String tyear, String tremark) {
         this.id = id;
         this.fid = fid;
         this.work = work;
         this.ywork = ywork;
-        this.duty = duty;
         this.month = month;
         this.tyear = tyear;
         this.tremark = tremark;
@@ -62,14 +59,6 @@ public class Timecard {
 
     public void setYwork(String ywork) {
         this.ywork = ywork;
-    }
-
-    public String getDuty() {
-        return duty;
-    }
-
-    public void setDuty(String duty) {
-        this.duty = duty;
     }
 
     public String getMonth() {

@@ -100,7 +100,11 @@
         </trim>
     </insert>
     <!--通过员工id查询薪酬-->
-    <select id="SelectById" resultType="com.pro.rem.model.Salary" parameterType="com.pro.limit.model.User">
-                 select * from salary where userid=#{userid}
+    <select id="SelectById" resultType="java.util.Map" parameterType="java.util.Map">
+        select a.*,b.username,c.deptName,b.level from salary a,user b ,dept c where a.userid=b.userid and c.deptid=b.fid and b.userid=#{userid}
+    </select>
+    <!--查询所有员工薪酬-->
+    <select id="getAll" resultType="java.util.Map" parameterType="java.util.Map">
+        select a.*,b.username,c.deptName,b.level from salary a,user b ,dept c where a.userid=b.userid and c.deptid=b.fid and c.deptName like #{deptName}
     </select>
 </mapper>
