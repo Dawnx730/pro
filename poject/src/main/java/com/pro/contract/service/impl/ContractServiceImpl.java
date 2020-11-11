@@ -4,6 +4,8 @@ import com.pro.contract.mapper.ContractMapper;
 import com.pro.contract.model.Contract;
 import com.pro.contract.service.ContractService;
 
+import java.util.List;
+
 /**
  * @author wang
  * @site https://blog.csdn.net/qq_45432593
@@ -48,5 +50,10 @@ public class ContractServiceImpl implements ContractService {
     @Override
     public int updateByPrimaryKey(Contract record) {
         return contractMapper.updateByPrimaryKey(record);
+    }
+
+    @Override
+    public List<Contract> selectContract(List id) {
+        return contractMapper.selectContract(id);
     }
 }

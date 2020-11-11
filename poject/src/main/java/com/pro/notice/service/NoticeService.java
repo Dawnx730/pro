@@ -1,12 +1,12 @@
-package com.pro.notice.mapper;
+package com.pro.notice.service;
 
 import com.pro.notice.model.Notice;
-
+import com.pro.util.PageBean;
 
 import java.util.List;
 import java.util.Map;
 
-public interface NoticeMapper {
+public interface NoticeService {
     int deleteByPrimaryKey(Integer nid);
 
     int insert(Notice record);
@@ -19,7 +19,10 @@ public interface NoticeMapper {
 
     int updateByPrimaryKey(Notice record);
 
-    List<Map> Nntice (Map map);
+    List<Map> Nntice(Map map, PageBean pageBean);
 
-    List<Notice>MvclistPager(Notice notice);
+    List<Map> listPager(Map map, PageBean pageBean);
+
+
+    List<Notice> listPager(Notice notice, PageBean pageBean);
 }
