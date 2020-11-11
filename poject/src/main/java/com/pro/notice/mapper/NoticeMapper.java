@@ -1,7 +1,7 @@
 package com.pro.notice.mapper;
 
 import com.pro.notice.model.Notice;
-import com.pro.util.PageBean;
+
 
 import java.util.List;
 import java.util.Map;
