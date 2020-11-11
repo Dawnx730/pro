@@ -105,4 +105,22 @@
       nstatus = #{nstatus,jdbcType=INTEGER}
     where nid = #{nid,jdbcType=INTEGER}
   </update>
+
+  <select id="Nntice" resultType="java.util.Map" parameterType="java.util.Map">
+    select * from  notice
+    <where>
+      <if test="null !=nname and nname !=''">
+        and nname like #{nname}
+      </if>
+    </where>
+  </select>
+
+  <select id="MvclistPager" resultType="com.pro.notice.model.Notice" parameterType="com.pro.notice.model.Notice">
+    select * from notice
+    <where>
+      <if test="nname and nname !=''">
+        and notice_nname like #{notice_nname}
+      </if>
+    </where>
+  </select>
 </mapper>
