@@ -116,4 +116,9 @@
       tstatus = #{tstatus,jdbcType=INTEGER}
     where taid = #{taid,jdbcType=INTEGER}
   </update>
+
+
+  <select id="listPager" resultType="java.util.Map" parameterType="java.util.Map" >
+    select *from  trainingaooroval where table_name like #{table_name }
+  </select>
 </mapper>

@@ -1,13 +1,15 @@
-package com.pro.trainingapproval.mapper;
+package com.pro.trainingapproval.service;
 
 import com.pro.trainingapproval.model.Trainingapproval;
-import org.springframework.stereotype.Repository;
 
-import java.util.List;
-import java.util.Map;
+/**
+ * @author 邦无敌
+ * @site https://blog.csdn.net/YoonBongChi
+ * @compsny 邦无敌公司
+ * @create 2020-11-11-11:58
+ */
+public interface TrainingapprovalService {
 
-@Repository
-public interface TrainingapprovalMapper {
     int deleteByPrimaryKey(Integer taid);
 
     int insert(Trainingapproval record);
@@ -19,6 +21,4 @@ public interface TrainingapprovalMapper {
     int updateByPrimaryKeySelective(Trainingapproval record);
 
     int updateByPrimaryKey(Trainingapproval record);
-
-    List<Map> listPager(Map map);
 }
