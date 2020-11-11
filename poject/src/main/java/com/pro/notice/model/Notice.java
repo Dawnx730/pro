@@ -76,15 +76,4 @@ public class Notice {
         this.nstatus = nstatus;
     }
 
-    @Override
-    public String toString() {
-        return "Notice{" +
-                "nid=" + nid +
-                ", nname='" + nname + '\'' +
-                ", abst='" + abst + '\'' +
-                ", ncontent='" + ncontent + '\'' +
-                ", ntime='" + ntime + '\'' +
-                ", nstatus=" + nstatus +
-                '}';
-    }
 }
