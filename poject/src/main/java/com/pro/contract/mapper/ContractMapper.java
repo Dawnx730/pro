@@ -18,7 +18,7 @@ public interface ContractMapper {
 
     int updateByPrimaryKey(Contract record);
 
-     List<Contract> selectContract (List id);
+//     List<Contract> selectContract (List id);
 
     /**
      * 模糊查询
