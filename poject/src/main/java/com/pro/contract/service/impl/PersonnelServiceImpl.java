@@ -55,10 +55,10 @@ public class PersonnelServiceImpl implements PersonnelService {
         return personnelMapper.updateByPrimaryKey(record);
     }
 
-    @Override
+   /* @Override
     public List<Personnel> selectPersonnel(List pid) {
         return personnelMapper.selectPersonnel(pid);
-    }
+    }*/
 
     @Override
     public List<Contract> selectContractLike(String cname) {
