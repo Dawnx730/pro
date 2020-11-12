@@ -1,9 +1,11 @@
 package com.pro.limit.mapper;
 
 import com.pro.limit.model.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface UserMapper {
@@ -30,5 +32,7 @@ public interface UserMapper {
     String getNameByAccount(User user);
 
     List<User> getAllByAccount(User user);
+
+    List<Map> getNameByDeptId(@Param("fid")Integer fid);
 
 }

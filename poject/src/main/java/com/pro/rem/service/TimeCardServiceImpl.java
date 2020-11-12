@@ -1,6 +1,7 @@
 package com.pro.rem.service;
 
 import com.pro.rem.mapper.TimecardMapper;
+import com.pro.rem.model.Timecard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,5 +20,15 @@ public class TimeCardServiceImpl implements TimeCardService {
     @Override
     public List<Map> getAll() {
         return timecardMapper.getAll();
+    }
+
+    @Override
+    public int insert(Timecard record) {
+        return timecardMapper.insert(record);
+    }
+
+    @Override
+    public List<Map> getRep(Timecard timecard) {
+        return timecardMapper.getRep(timecard);
     }
 }

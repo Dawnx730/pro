@@ -1,5 +1,7 @@
 package com.pro.rem.service;
 
+import com.pro.rem.model.Timecard;
+
 import java.util.List;
 import java.util.Map;
 
@@ -10,4 +12,9 @@ import java.util.Map;
 public interface TimeCardService {
 
     List<Map> getAll();
+
+    int insert(Timecard record);
+
+    List<Map> getRep(Timecard timecard);
+
 }

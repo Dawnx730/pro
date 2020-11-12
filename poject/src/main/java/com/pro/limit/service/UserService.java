@@ -1,8 +1,10 @@
 package com.pro.limit.service;
 
 import com.pro.limit.model.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author xiaoyang
@@ -32,4 +34,6 @@ public interface UserService {
     String getNameByAccount(User user);
 
     List<User> getAllByAccount(User user);
+
+    List<Map> getNameByDeptId(@Param("fid")Integer fid);
 }

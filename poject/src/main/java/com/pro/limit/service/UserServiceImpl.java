@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author xiaoyang
@@ -75,5 +76,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getAllByAccount(User user) {
         return userMapper.getAllByAccount(user);
+    }
+
+    @Override
+    public List<Map> getNameByDeptId(Integer fid) {
+        return userMapper.getNameByDeptId(fid);
     }
 }

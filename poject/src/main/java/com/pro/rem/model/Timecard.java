@@ -15,7 +15,11 @@ public class Timecard {
 
     private String tremark;
 
-    public Timecard(Integer id, Integer fid, String work, String ywork, String month, String tyear, String tremark) {
+    private Integer late;
+
+    private Integer leave;
+
+    public Timecard(Integer id, Integer fid, String work, String ywork, String month, String tyear, String tremark, Integer late, Integer leave) {
         this.id = id;
         this.fid = fid;
         this.work = work;
@@ -23,6 +27,8 @@ public class Timecard {
         this.month = month;
         this.tyear = tyear;
         this.tremark = tremark;
+        this.late = late;
+        this.leave = leave;
     }
 
     public Timecard() {
@@ -83,5 +89,21 @@ public class Timecard {
 
     public void setTremark(String tremark) {
         this.tremark = tremark;
+    }
+
+    public Integer getLate() {
+        return late;
+    }
+
+    public void setLate(Integer late) {
+        this.late = late;
+    }
+
+    public Integer getLeave() {
+        return leave;
+    }
+
+    public void setLeave(Integer leave) {
+        this.leave = leave;
     }
 }

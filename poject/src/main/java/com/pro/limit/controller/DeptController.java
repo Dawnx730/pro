@@ -11,6 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author xiaoyang
  * @create  2020-11-11 9:15
@@ -27,5 +30,12 @@ public class DeptController {
     public String getDept(Dept dept) {
         String deptById = deptService.getDeptById(dept);
         return deptById;
+    }
+
+    @ResponseBody
+    @RequestMapping("/getAllDept")
+    public List<Map> getAllDept(){
+        List<Map> all = deptService.getAll();
+        return all;
     }
 }

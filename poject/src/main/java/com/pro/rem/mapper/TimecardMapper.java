@@ -20,4 +20,6 @@ public interface TimecardMapper {
     int updateByPrimaryKey(Timecard record);
 
     List<Map> getAll();
+
+    List<Map> getRep(Timecard timecard);
 }

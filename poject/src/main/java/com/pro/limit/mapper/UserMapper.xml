@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.pro.limit.mapper.UserMapper" >
-  <resultMap id="BaseResultMap" type="com.pro.limit.model.User" >
-    <constructor >
-      <idArg column="userid" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="account" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="password" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="level" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="fid" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="username" jdbcType="VARCHAR" javaType="java.lang.String" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.pro.limit.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="com.pro.limit.model.User">
+        <constructor>
+            <idArg column="userid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="account" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="password" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="level" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="fid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="username" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
     userid, account, password, level, status, fid, username
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from user
-    where userid = #{userid,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from user
+        where userid = #{userid,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from user
     where userid = #{userid,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.pro.limit.model.User" >
+    <insert id="insert" parameterType="com.pro.limit.model.User">
     insert into user (userid, account, password, 
       level, status, fid, 
       username)
@@ -33,80 +33,80 @@
       #{level,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{fid,jdbcType=INTEGER}, 
       #{username,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.pro.limit.model.User" >
-    insert into user
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="userid != null" >
-        userid,
-      </if>
-      <if test="account != null" >
-        account,
-      </if>
-      <if test="password != null" >
-        password,
-      </if>
-      <if test="level != null" >
-        level,
-      </if>
-      <if test="status != null" >
-        status,
-      </if>
-      <if test="fid != null" >
-        fid,
-      </if>
-      <if test="username != null" >
-        username,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="userid != null" >
-        #{userid,jdbcType=INTEGER},
-      </if>
-      <if test="account != null" >
-        #{account,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null" >
-        #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="level != null" >
-        #{level,jdbcType=INTEGER},
-      </if>
-      <if test="status != null" >
-        #{status,jdbcType=INTEGER},
-      </if>
-      <if test="fid != null" >
-        #{fid,jdbcType=INTEGER},
-      </if>
-      <if test="username != null" >
-        #{username,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.pro.limit.model.User" >
-    update user
-    <set >
-      <if test="account != null" >
-        account = #{account,jdbcType=VARCHAR},
-      </if>
-      <if test="password != null" >
-        password = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="level != null" >
-        level = #{level,jdbcType=INTEGER},
-      </if>
-      <if test="status != null" >
-        status = #{status,jdbcType=INTEGER},
-      </if>
-      <if test="fid != null" >
-        fid = #{fid,jdbcType=INTEGER},
-      </if>
-      <if test="username != null" >
-        username = #{username,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where userid = #{userid,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.pro.limit.model.User" >
+    <insert id="insertSelective" parameterType="com.pro.limit.model.User">
+        insert into user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="userid != null">
+                userid,
+            </if>
+            <if test="account != null">
+                account,
+            </if>
+            <if test="password != null">
+                password,
+            </if>
+            <if test="level != null">
+                level,
+            </if>
+            <if test="status != null">
+                status,
+            </if>
+            <if test="fid != null">
+                fid,
+            </if>
+            <if test="username != null">
+                username,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="userid != null">
+                #{userid,jdbcType=INTEGER},
+            </if>
+            <if test="account != null">
+                #{account,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="level != null">
+                #{level,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="fid != null">
+                #{fid,jdbcType=INTEGER},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.pro.limit.model.User">
+        update user
+        <set>
+            <if test="account != null">
+                account = #{account,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="level != null">
+                level = #{level,jdbcType=INTEGER},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="fid != null">
+                fid = #{fid,jdbcType=INTEGER},
+            </if>
+            <if test="username != null">
+                username = #{username,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where userid = #{userid,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.pro.limit.model.User">
     update user
     set account = #{account,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
@@ -117,42 +117,46 @@
     where userid = #{userid,jdbcType=INTEGER}
   </update>
 
-  <!--  登录方法-->
-  <select id="login" resultType="com.pro.limit.model.User" parameterType="com.pro.limit.model.User">
+    <!--  登录方法-->
+    <select id="login" resultType="com.pro.limit.model.User" parameterType="com.pro.limit.model.User">
     select *
     from user
     where account = #{account} and password =#{password}
     </select>
-  <!--    通过账号查询权限-->
-  <select id="getLevel" resultType="java.lang.Integer" parameterType="com.pro.limit.model.User">
+    <!--    通过账号查询权限-->
+    <select id="getLevel" resultType="java.lang.Integer" parameterType="com.pro.limit.model.User">
     select level
     from user
     where account = #{account}
     </select>
-  <!--通过账号查询id-->
-  <select id="getIdByAccount" resultType="java.lang.Integer" parameterType="com.pro.limit.model.User">
+    <!--通过账号查询id-->
+    <select id="getIdByAccount" resultType="java.lang.Integer" parameterType="com.pro.limit.model.User">
     select userid
     from user
     where account = #{account}
     </select>
 
-  <!--通过账号查询部门id-->
-  <select id="getDeptByAccount" resultType="java.lang.Integer" parameterType="com.pro.limit.model.User">
+    <!--通过账号查询部门id-->
+    <select id="getDeptByAccount" resultType="java.lang.Integer" parameterType="com.pro.limit.model.User">
     select fid
     from user
     where account = #{account}
     </select>
 
-  <!--通过账号查询员工姓名-->
-  <select id="getNameByAccount" resultType="java.lang.String" parameterType="com.pro.limit.model.User">
+    <!--通过账号查询员工姓名-->
+    <select id="getNameByAccount" resultType="java.lang.String" parameterType="com.pro.limit.model.User">
     select username
     from user
     where account = #{account}
     </select>
-  <!--通过账号查询所有信息-->
-  <select id="getAllByAccount" resultType="com.pro.limit.model.User" parameterType="com.pro.limit.model.User">
+    <!--通过账号查询所有信息-->
+    <select id="getAllByAccount" resultType="com.pro.limit.model.User" parameterType="com.pro.limit.model.User">
     select *
     from user
     where account = #{account}
+    </select>
+
+    <select id="getNameByDeptId" resultType="java.util.Map" parameterType="java.lang.Integer">
+      select * from user where fid=#{fid}
     </select>
 </mapper>

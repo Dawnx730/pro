@@ -5,6 +5,9 @@ import com.pro.limit.model.Dept;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author xiaoyang
  * @create  2020-11-11 9:20
@@ -17,4 +20,11 @@ public class DeptServiceImpl implements DeptService{
     public String getDeptById(Dept dept) {
         return deptMapper.getDeptById(dept);
     }
+
+    @Override
+    public List<Map> getAll() {
+        return deptMapper.getAll();
+    }
+
+
 }

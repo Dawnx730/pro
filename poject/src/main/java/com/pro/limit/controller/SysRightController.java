@@ -37,9 +37,21 @@ public class SysRightController {
         if (level == 3) {
             return sysRights;
         } else if (level == 2) {
-            for (SysRight sysRight : sysRights) {
-                if (sysRight.getRightNodeType() == 2) {
-                    list.add(sysRight);
+            //循环判断权限对应的父节点和子节点
+            for (int i = 0; i < sysRights.size(); i++) {
+                for (int i1 = 0; i1 < sysRights.get(i).getChildren().size(); i1++) {
+                    if(sysRights.get(i).getChildren().get(i1).getRightNodeType()<3){
+                        list.add(sysRights.get(i));
+                        break;
+                    }
+                }
+            }
+            for (int i = 0; i < list.size(); i++) {
+                for (int i1 = 0; i1 < list.get(i).getChildren().size(); i1++) {
+                    if(list.get(i).getChildren().get(i1).getRightNodeType()>=3){
+                        list.get(i).getChildren().remove(i1);
+                        i1--;
+                    }
                 }
             }
             return list;

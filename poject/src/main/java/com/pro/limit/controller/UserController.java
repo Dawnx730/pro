@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author xiaoyang
@@ -68,5 +69,13 @@ public class UserController {
     public Integer getLevel(User user) {
         Integer level = userService.getLevel(user);
         return level;
+    }
+
+    //  通过部门id获取员工
+    @ResponseBody
+    @RequestMapping("/getUserName")
+    public List<Map> getLevel(Dept dept) {
+        List<Map> nameByDeptId = userService.getNameByDeptId(dept.getDeptid());
+        return nameByDeptId;
     }
 }

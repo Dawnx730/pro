@@ -77,4 +77,10 @@
      from dept
      where deptid = #{deptid}
     </select>
+
+    <!--查询所有部门名称-->
+    <select id="getAll" resultType="java.util.Map">
+    select *
+     from dept
+    </select>
 </mapper>
