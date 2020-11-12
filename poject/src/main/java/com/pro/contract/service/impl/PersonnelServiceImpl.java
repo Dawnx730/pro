@@ -4,6 +4,7 @@ import com.pro.contract.mapper.PersonnelMapper;
 import com.pro.contract.model.Contract;
 import com.pro.contract.model.Personnel;
 import com.pro.contract.service.PersonnelService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
  * @create 2020-11-09  19:12
  */
 public class PersonnelServiceImpl implements PersonnelService {
+    @Autowired
     private PersonnelMapper personnelMapper;
 
     public PersonnelMapper getPersonnelMapper() {

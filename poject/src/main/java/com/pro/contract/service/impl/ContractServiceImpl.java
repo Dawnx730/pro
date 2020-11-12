@@ -3,6 +3,7 @@ package com.pro.contract.service.impl;
 import com.pro.contract.mapper.ContractMapper;
 import com.pro.contract.model.Contract;
 import com.pro.contract.service.ContractService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @create 2020-11-06  14:19
  */
 public class ContractServiceImpl implements ContractService {
+    @Autowired
     private ContractMapper contractMapper;
 
     public ContractMapper getContractMapper() {
