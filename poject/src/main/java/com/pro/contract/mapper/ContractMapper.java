@@ -2,9 +2,10 @@ package com.pro.contract.mapper;
 
 import com.pro.contract.model.Contract;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-
+@Repository
 public interface ContractMapper {
     int deleteByPrimaryKey(Integer id);
 

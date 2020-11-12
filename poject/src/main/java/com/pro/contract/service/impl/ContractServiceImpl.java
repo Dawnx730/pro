@@ -4,6 +4,7 @@ import com.pro.contract.mapper.ContractMapper;
 import com.pro.contract.model.Contract;
 import com.pro.contract.service.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @site https://blog.csdn.net/qq_45432593
  * @create 2020-11-06  14:19
  */
+@Service
 public class ContractServiceImpl implements ContractService {
     @Autowired
     private ContractMapper contractMapper;

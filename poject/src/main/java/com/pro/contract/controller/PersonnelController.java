@@ -15,6 +15,7 @@ import java.util.List;
  * @create 2020-11-06  14:36
  */
 @Controller
+@RequestMapping
 public class PersonnelController {
       
     @Autowired
