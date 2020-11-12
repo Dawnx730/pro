@@ -11,8 +11,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @create 2020-11-11-12:26
  */
 @Controller
-@RequestMapping
+@RequestMapping("/Trainingapproval")
 public class TrainingapprovalContrller {
 
+    @ResponseBody
+    @RequestMapping("/list")
+    public String list(){
+        return  "你发到";
+    }
 
 }
