@@ -22,5 +22,5 @@ public interface ContractService {
 
     int updateByPrimaryKey(Contract record);
 
-    List<Contract> selectContract (List id);
+//    List<Contract> selectContract (List id);
 }

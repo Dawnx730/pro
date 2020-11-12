@@ -25,7 +25,7 @@ public interface PersonnelService {
 
     int updateByPrimaryKey(Personnel record);
 
-    List<Personnel> selectPersonnel(List pid);
+   // List<Personnel> selectPersonnel(List pid);
 
 
     /**

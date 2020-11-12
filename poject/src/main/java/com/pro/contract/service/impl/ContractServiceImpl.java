@@ -56,8 +56,8 @@ public class ContractServiceImpl implements ContractService {
         return contractMapper.updateByPrimaryKey(record);
     }
 
-    @Override
-    public List<Contract> selectContract(List id) {
-        return contractMapper.selectContract(id);
-    }
+//    @Override
+//    public List<Contract> selectContract(List id) {
+//        return contractMapper.selectContract(id);
+//    }
 }

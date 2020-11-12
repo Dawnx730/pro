@@ -26,7 +26,7 @@ public interface PersonnelMapper {
      * @param pid
      * @return
      */
-    List<Personnel> selectPersonnel(@Param("pid") List pid);
+   // List<Personnel> selectPersonnel(@Param("pid") List pid);
 
     /**
      * 模糊查询
