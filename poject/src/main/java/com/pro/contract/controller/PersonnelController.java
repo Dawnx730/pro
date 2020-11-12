@@ -20,44 +20,44 @@ public class PersonnelController {
     @Autowired
     private  PersonnelService personnelService;
 
-    @RequestMapping("/Personnel")
+    @RequestMapping("/deleteByPrimaryKey")
     public  String deleteByPrimaryKey(HttpServletRequest req){
 
         return  "redirect:/Personnel/list";
     }
-    @RequestMapping("/Personnel")
+    @RequestMapping("/insert")
     public  String insert(HttpServletRequest req){
 
         return  "redirect:/Personnel/list";
     }
-    @RequestMapping("/Personnel")
+    @RequestMapping("/insertSelective")
     public  String insertSelective(HttpServletRequest req){
 
         return  "redirect:/Personnel/list";
     }
-    @RequestMapping("/Personnel")
+    @RequestMapping("/selectByPrimaryKey")
     public  String selectByPrimaryKey(HttpServletRequest req){
 
         return  "redirectList";
     }
-    @RequestMapping("/Personnel")
+    @RequestMapping("/updateByPrimaryKeySelective")
     public  String updateByPrimaryKeySelective(HttpServletRequest req){
 
         return  "redirect:/Personnel/list";
     }
-    @RequestMapping("/Personnel")
+    @RequestMapping("/updateByPrimaryKey")
     public  String updateByPrimaryKey(HttpServletRequest req){
 
         return  "redirect:/Personnel/list";
     }
-    @RequestMapping("/Personnel")
+    @RequestMapping("/selectPersonnel")
     public  String selectPersonnel(Personnel personnel, HttpServletRequest req){
         PageBean pageBean=new PageBean();
         pageBean.setRequest(req);
 
         return  "redirectList";
     }
-    @RequestMapping("/Personnel")
+    @RequestMapping("/selectContractLike")
     public  String selectContractLike(HttpServletRequest req){
 
         return  "redirectList";
