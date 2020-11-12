@@ -32,7 +32,7 @@ public class TimeCardController {
     @RequestMapping("/add")
     public String add(Timecard timecard) {
         int insert = timeCardService.insert(timecard);
-        System.out.println(insert);
+        System.out.println("------------------------------------------------------------------------");
         if (insert > 0) {//增加成功返回0
             return "success";
         }

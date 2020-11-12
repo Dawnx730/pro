@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
  * @create 2020-11-06  14:01
  */
 @Controller
+@RequestMapping("/ContractController")
 public class ContractController {
 
     private ContractService contractService;
