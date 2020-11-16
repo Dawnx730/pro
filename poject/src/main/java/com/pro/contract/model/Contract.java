@@ -1,22 +1,19 @@
 package com.pro.contract.model;
 
-/**
- * 合同管理（人事档案管理模块）
- */
-public class Contract {
+public class contract {
     private Integer id;
 
-    private Integer fid;//员工id
+    private Integer fid;
 
-    private String cname;//合同名称
+    private String cname;
 
-    private String cnature;//合同性质
+    private String cnature;
 
-    private String cagreement;//合同达成内容
+    private String cagreement;
 
-    private Integer cstatus;//合同状态，例如1、正在使用 2、弃用
+    private Integer cstatus;
 
-    public Contract(Integer id, Integer fid, String cname, String cnature, String cagreement, Integer cstatus) {
+    public contract(Integer id, Integer fid, String cname, String cnature, String cagreement, Integer cstatus) {
         this.id = id;
         this.fid = fid;
         this.cname = cname;
@@ -25,7 +22,7 @@ public class Contract {
         this.cstatus = cstatus;
     }
 
-    public Contract() {
+    public contract() {
         super();
     }
 

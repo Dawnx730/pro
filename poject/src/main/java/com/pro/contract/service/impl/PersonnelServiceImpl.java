@@ -62,8 +62,8 @@ public class PersonnelServiceImpl implements PersonnelService {
         return personnelMapper.selectPersonnel(pid);
     }*/
 
-    @Override
+  /*  @Override
     public List<Contract> selectContractLike(String cname) {
         return personnelMapper.selectContractLike(cname);
-    }
+    }*/
 }

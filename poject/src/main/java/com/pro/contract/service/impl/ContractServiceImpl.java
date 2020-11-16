@@ -1,63 +1,41 @@
 package com.pro.contract.service.impl;
 
-import com.pro.contract.mapper.ContractMapper;
-import com.pro.contract.model.Contract;
+import com.pro.contract.model.contract;
 import com.pro.contract.service.ContractService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 /**
  * @author wang
  * @site https://blog.csdn.net/qq_45432593
- * @create 2020-11-06  14:19
+ * @create 2020-11-16  18:51
  */
-@Service
 public class ContractServiceImpl implements ContractService {
-    @Autowired
-    private ContractMapper contractMapper;
-
-    public ContractMapper getContractMapper() {
-        return contractMapper;
-    }
-
-    public void setContractMapper(ContractMapper contractMapper) {
-        this.contractMapper = contractMapper;
-    }
-
     @Override
     public int deleteByPrimaryKey(Integer id) {
-        return contractMapper.deleteByPrimaryKey(id);
+        return 0;
     }
 
     @Override
-    public int insert(Contract record) {
-        return contractMapper.insert(record);
+    public int insert(contract record) {
+        return 0;
     }
 
     @Override
-    public int insertSelective(Contract record) {
-        return contractMapper.insertSelective(record);
+    public int insertSelective(contract record) {
+        return 0;
     }
 
     @Override
-    public Contract selectByPrimaryKey(Integer id) {
-        return contractMapper.selectByPrimaryKey(id);
+    public contract selectByPrimaryKey(Integer id) {
+        return null;
     }
 
     @Override
-    public int updateByPrimaryKeySelective(Contract record) {
-        return contractMapper.updateByPrimaryKeySelective(record);
+    public int updateByPrimaryKeySelective(contract record) {
+        return 0;
     }
 
     @Override
-    public int updateByPrimaryKey(Contract record) {
-        return contractMapper.updateByPrimaryKey(record);
+    public int updateByPrimaryKey(contract record) {
+        return 0;
     }
-
-//    @Override
-//    public List<Contract> selectContract(List id) {
-//        return contractMapper.selectContract(id);
-//    }
 }

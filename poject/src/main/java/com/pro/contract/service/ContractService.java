@@ -1,8 +1,6 @@
 package com.pro.contract.service;
 
-import com.pro.contract.model.Contract;
-
-import java.util.List;
+import com.pro.contract.model.contract;
 
 /**
  * @author wang
@@ -12,15 +10,14 @@ import java.util.List;
 public interface ContractService {
     int deleteByPrimaryKey(Integer id);
 
-    int insert(Contract record);
+    int insert(contract record);
 
-    int insertSelective(Contract record);
+    int insertSelective(contract record);
 
-    Contract selectByPrimaryKey(Integer id);
+    contract selectByPrimaryKey(Integer id);
 
-    int updateByPrimaryKeySelective(Contract record);
+    int updateByPrimaryKeySelective(contract record);
 
-    int updateByPrimaryKey(Contract record);
+    int updateByPrimaryKey(contract record);
 
-//    List<Contract> selectContract (List id);
 }

@@ -32,6 +32,6 @@ public interface PersonnelService {
      * 模糊查询
      * @return
      */
-    List<Contract> selectContractLike(@Param("cname") String cname);
+   /* List<Contract> selectContractLike(@Param("cname") String cname);*/
 
 }
