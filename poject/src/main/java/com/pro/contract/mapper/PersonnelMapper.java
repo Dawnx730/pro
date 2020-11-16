@@ -21,19 +21,6 @@ public interface PersonnelMapper {
 
     int updateByPrimaryKey(Personnel record);
 
-    /**
-     * 如果形参要在mapper.xml中使用就需要加上注解
-     * @param pid
-     * @return
-     */
-   // List<Personnel> selectPersonnel(@Param("pid") List pid);
-
-    /**
-     * 模糊查询
-     * @return
-     */
-    List<Contract> selectContractLike(@Param("cname") String cname);
-
 
 
 
