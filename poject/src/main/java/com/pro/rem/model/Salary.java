@@ -15,6 +15,8 @@ public class Salary {
 
     private Float insur;
 
+    private Float pre;
+
     private Integer sastatus;
 
     private Integer smonth;
@@ -23,7 +25,9 @@ public class Salary {
 
     private Float sum;
 
-    public Salary(Integer userid, Float bwage, Float housefund, Float reimbursement, Float paward, Float overtime, Float insur, Integer sastatus, Integer smonth, Integer syear, Float sum) {
+    private String remark;
+
+    public Salary(Integer userid, Float bwage, Float housefund, Float reimbursement, Float paward, Float overtime, Float insur, Float pre, Integer sastatus, Integer smonth, Integer syear, Float sum, String remark) {
         this.userid = userid;
         this.bwage = bwage;
         this.housefund = housefund;
@@ -31,10 +35,12 @@ public class Salary {
         this.paward = paward;
         this.overtime = overtime;
         this.insur = insur;
+        this.pre = pre;
         this.sastatus = sastatus;
         this.smonth = smonth;
         this.syear = syear;
         this.sum = sum;
+        this.remark = remark;
     }
 
     public Salary() {
@@ -97,6 +103,14 @@ public class Salary {
         this.insur = insur;
     }
 
+    public Float getPre() {
+        return pre;
+    }
+
+    public void setPre(Float pre) {
+        this.pre = pre;
+    }
+
     public Integer getSastatus() {
         return sastatus;
     }
@@ -127,5 +141,13 @@ public class Salary {
 
     public void setSum(Float sum) {
         this.sum = sum;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }

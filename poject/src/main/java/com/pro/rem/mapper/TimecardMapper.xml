@@ -1,151 +1,172 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.pro.rem.mapper.TimecardMapper" >
-  <resultMap id="BaseResultMap" type="com.pro.rem.model.Timecard" >
-    <constructor >
-      <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="fid" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="work" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="ywork" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="month" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="tyear" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="tremark" jdbcType="VARCHAR" javaType="java.lang.String" />
-      <arg column="late" jdbcType="INTEGER" javaType="java.lang.Integer" />
-      <arg column="leave" jdbcType="INTEGER" javaType="java.lang.Integer" />
-    </constructor>
-  </resultMap>
-  <sql id="Base_Column_List" >
-    id, fid, work, ywork, month, tyear, tremark, late, leave
+<mapper namespace="com.pro.rem.mapper.TimecardMapper">
+    <resultMap id="BaseResultMap" type="com.pro.rem.model.Timecard">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="fid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="work" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="ywork" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="month" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="tyear" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="tremark" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="late" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="leave" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="overtime" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, fid, work, ywork, month, tyear, tremark, late, leave, overtime
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from timecard
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from timecard
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from timecard
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.pro.rem.model.Timecard" >
-    insert into timecard (id, fid, work, 
-      ywork, month, tyear, 
-      tremark, late, leave
-      )
-    values (#{id,jdbcType=INTEGER}, #{fid,jdbcType=INTEGER}, #{work,jdbcType=VARCHAR}, 
-      #{ywork,jdbcType=VARCHAR}, #{month,jdbcType=VARCHAR}, #{tyear,jdbcType=VARCHAR}, 
-      #{tremark,jdbcType=VARCHAR}, #{late,jdbcType=INTEGER}, #{leave,jdbcType=INTEGER}
-      )
-  </insert>
-  <insert id="insertSelective" parameterType="com.pro.rem.model.Timecard" >
+    <insert id="insert" parameterType="com.pro.rem.model.Timecard">
     insert into timecard
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="fid != null" >
-        fid,
-      </if>
-      <if test="work != null" >
-        work,
-      </if>
-      <if test="ywork != null" >
-        ywork,
-      </if>
-      <if test="month != null" >
-        month,
-      </if>
-      <if test="tyear != null" >
-        tyear,
-      </if>
-      <if test="tremark != null" >
-        tremark,
-      </if>
-      <if test="late != null" >
-        late,
-      </if>
-      <if test="leave != null" >
-        leave,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="fid != null" >
-        #{fid,jdbcType=INTEGER},
-      </if>
-      <if test="work != null" >
-        #{work,jdbcType=VARCHAR},
-      </if>
-      <if test="ywork != null" >
-        #{ywork,jdbcType=VARCHAR},
-      </if>
-      <if test="month != null" >
-        #{month,jdbcType=VARCHAR},
-      </if>
-      <if test="tyear != null" >
-        #{tyear,jdbcType=VARCHAR},
-      </if>
-      <if test="tremark != null" >
-        #{tremark,jdbcType=VARCHAR},
-      </if>
-      <if test="late != null" >
-        #{late,jdbcType=INTEGER},
-      </if>
-      <if test="leave != null" >
-        #{leave,jdbcType=INTEGER},
-      </if>
-    </trim>
+    values (null,#{fid,jdbcType=INTEGER},#{work,jdbcType=INTEGER},#{ywork,jdbcType=INTEGER},#{month,jdbcType=INTEGER},#{tyear,jdbcType=INTEGER},1,#{late,jdbcType=INTEGER},#{leave,jdbcType=INTEGER},#{overtime,jdbcType=INTEGER})
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.pro.rem.model.Timecard" >
-    update timecard
-    <set >
-      <if test="fid != null" >
-        fid = #{fid,jdbcType=INTEGER},
-      </if>
-      <if test="work != null" >
-        work = #{work,jdbcType=VARCHAR},
-      </if>
-      <if test="ywork != null" >
-        ywork = #{ywork,jdbcType=VARCHAR},
-      </if>
-      <if test="month != null" >
-        month = #{month,jdbcType=VARCHAR},
-      </if>
-      <if test="tyear != null" >
-        tyear = #{tyear,jdbcType=VARCHAR},
-      </if>
-      <if test="tremark != null" >
-        tremark = #{tremark,jdbcType=VARCHAR},
-      </if>
-      <if test="late != null" >
-        late = #{late,jdbcType=INTEGER},
-      </if>
-      <if test="leave != null" >
-        leave = #{leave,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.pro.rem.model.Timecard" >
+    <insert id="insertSelective" parameterType="com.pro.rem.model.Timecard">
+        insert into timecard
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="fid != null">
+                fid,
+            </if>
+            <if test="work != null">
+                work,
+            </if>
+            <if test="ywork != null">
+                ywork,
+            </if>
+            <if test="month != null">
+                month,
+            </if>
+            <if test="tyear != null">
+                tyear,
+            </if>
+            <if test="tremark != null">
+                tremark,
+            </if>
+            <if test="late != null">
+                late,
+            </if>
+            <if test="leave != null">
+                leave,
+            </if>
+            <if test="overtime != null">
+                overtime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="fid != null">
+                #{fid,jdbcType=INTEGER},
+            </if>
+            <if test="work != null">
+                #{work,jdbcType=INTEGER},
+            </if>
+            <if test="ywork != null">
+                #{ywork,jdbcType=INTEGER},
+            </if>
+            <if test="month != null">
+                #{month,jdbcType=INTEGER},
+            </if>
+            <if test="tyear != null">
+                #{tyear,jdbcType=INTEGER},
+            </if>
+            <if test="tremark != null">
+                #{tremark,jdbcType=VARCHAR},
+            </if>
+            <if test="late != null">
+                #{late,jdbcType=INTEGER},
+            </if>
+            <if test="leave != null">
+                #{leave,jdbcType=INTEGER},
+            </if>
+            <if test="overtime != null">
+                #{overtime,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.pro.rem.model.Timecard">
+        update timecard
+        <set>
+            <if test="fid != null">
+                fid = #{fid,jdbcType=INTEGER},
+            </if>
+            <if test="work != null">
+                work = #{work,jdbcType=INTEGER},
+            </if>
+            <if test="ywork != null">
+                ywork = #{ywork,jdbcType=INTEGER},
+            </if>
+            <if test="month != null">
+                month = #{month,jdbcType=INTEGER},
+            </if>
+            <if test="tyear != null">
+                tyear = #{tyear,jdbcType=INTEGER},
+            </if>
+            <if test="tremark != null">
+                tremark = #{tremark,jdbcType=VARCHAR},
+            </if>
+            <if test="late != null">
+                late = #{late,jdbcType=INTEGER},
+            </if>
+            <if test="leave != null">
+                leave = #{leave,jdbcType=INTEGER},
+            </if>
+            <if test="overtime != null">
+                overtime = #{overtime,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.pro.rem.model.Timecard">
     update timecard
     set fid = #{fid,jdbcType=INTEGER},
-      work = #{work,jdbcType=VARCHAR},
-      ywork = #{ywork,jdbcType=VARCHAR},
-      month = #{month,jdbcType=VARCHAR},
-      tyear = #{tyear,jdbcType=VARCHAR},
+      work = #{work,jdbcType=INTEGER},
+      ywork = #{ywork,jdbcType=INTEGER},
+      month = #{month,jdbcType=INTEGER},
+      tyear = #{tyear,jdbcType=INTEGER},
       tremark = #{tremark,jdbcType=VARCHAR},
       late = #{late,jdbcType=INTEGER},
-      leave = #{leave,jdbcType=INTEGER}
+      leave = #{leave,jdbcType=INTEGER},
+      overtime = #{overtime,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <!--  查询所有员工考勤数据-->
-  <select id="getAll" resultType="java.util.Map">
-        select a.*,b.username,c.deptName from timecard a,user b,dept c where a.fid=b.userid  and b.fid=c.deptid
+    <!--  查询所有员工考勤数据-->
+    <select id="getAll" resultType="java.util.Map">
+        select a.*,b.username,c.deptName from timecard a,user b,dept c where a.fid=b.userid  and b.fid=c.deptid and a.tremark=1
   </select>
-
-  <select id="getRep" resultType="java.util.Map" parameterType="com.pro.rem.model.Timecard">
-        select * from timecard where month=#{month} and tyear=#{tyear} and fid=#{fid}
+    <!--判断重复工资-->
+    <select id="getRep" resultType="java.util.Map" parameterType="com.pro.rem.model.Timecard">
+        select * from timecard where month=#{month} and tyear=#{tyear} and fid=#{fid} and tremark=1
   </select>
+    <!--通过用户名查询考勤-->
+    <select id="selByName" resultType="java.util.Map" parameterType="java.util.Map">
+        select a.*,b.username,c.deptName from timecard a,user b,dept c where a.fid=b.userid  and b.fid=c.deptid and a.tremark=1 and b.username like #{username}
+  </select>
+    <update id="updateStatus" parameterType="com.pro.rem.model.Timecard">
+            update timecard set tremark=1 where id=#{id};
+    </update>
+    <!--通过薪酬界面获取到员工考勤数据-->
+    <select id="selectBySal" resultType="java.util.Map" parameterType="java.util.Map">
+select a.*,b.username,c.deptName,d.remark from timecard a,user b,dept c,salary d where a.fid=b.userid and b.fid=c.deptid and d.userid=a.fid and a.fid=#{userid} and a.month=#{smonth} and a.tyear=#{syear} and a.tremark=1
+  </select>
+    <!--修改在用的员工考勤数据-->
+    <update id="updData" parameterType="java.util.Map">
+      update timecard set work=#{work},ywork=#{ywork},late=#{late},timecard.`leave`=#{leave},overtime=#{overtime}
+       where month=#{month} and tyear=#{tyear} and fid=#{fid} and tremark=1
+    </update>
 </mapper>

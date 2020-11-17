@@ -31,4 +31,25 @@ public class TimeCardServiceImpl implements TimeCardService {
     public List<Map> getRep(Timecard timecard) {
         return timecardMapper.getRep(timecard);
     }
+
+    @Override
+    public void updateStatus(Timecard timecard) {
+        timecardMapper.updateStatus(timecard);
+    }
+
+    @Override
+    public List<Map> selectBySal(Map map) {
+        return timecardMapper.selectBySal(map);
+    }
+
+    @Override
+    public List<Map> selByName(Map map) {
+        return timecardMapper.selByName(map);
+    }
+
+    @Override
+    public void updData(Map map) {
+        timecardMapper.updData(map);
+    }
+
 }

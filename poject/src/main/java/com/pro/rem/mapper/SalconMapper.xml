@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pro.rem.mapper.SalconMapper">
+    <resultMap id="BaseResultMap" type="com.pro.rem.model.Salcon">
+        <constructor>
+            <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="userid" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="wage" jdbcType="REAL" javaType="java.lang.Float"/>
+            <arg column="housefund" jdbcType="REAL" javaType="java.lang.Float"/>
+            <arg column="reimbursement" jdbcType="REAL" javaType="java.lang.Float"/>
+            <arg column="paward" jdbcType="REAL" javaType="java.lang.Float"/>
+            <arg column="insur" jdbcType="REAL" javaType="java.lang.Float"/>
+            <arg column="sastatus" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, userid, wage, housefund, reimbursement, paward, insur, sastatus
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from salcon
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from salcon
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.pro.rem.model.Salcon">
+    insert into salcon
+    values (null,#{userid},#{wage},#{housefund},#{reimbursement},#{paward},#{insur},1)
+  </insert>
+    <insert id="insertSelective" parameterType="com.pro.rem.model.Salcon">
+        insert into salcon
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="userid != null">
+                userid,
+            </if>
+            <if test="wage != null">
+                wage,
+            </if>
+            <if test="housefund != null">
+                housefund,
+            </if>
+            <if test="reimbursement != null">
+                reimbursement,
+            </if>
+            <if test="paward != null">
+                paward,
+            </if>
+            <if test="insur != null">
+                insur,
+            </if>
+            <if test="sastatus != null">
+                sastatus,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="userid != null">
+                #{userid,jdbcType=INTEGER},
+            </if>
+            <if test="wage != null">
+                #{wage,jdbcType=REAL},
+            </if>
+            <if test="housefund != null">
+                #{housefund,jdbcType=REAL},
+            </if>
+            <if test="reimbursement != null">
+                #{reimbursement,jdbcType=REAL},
+            </if>
+            <if test="paward != null">
+                #{paward,jdbcType=REAL},
+            </if>
+            <if test="insur != null">
+                #{insur,jdbcType=REAL},
+            </if>
+            <if test="sastatus != null">
+                #{sastatus,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.pro.rem.model.Salcon">
+        update salcon
+        <set>
+            <if test="userid != null">
+                userid = #{userid,jdbcType=INTEGER},
+            </if>
+            <if test="wage != null">
+                wage = #{wage,jdbcType=REAL},
+            </if>
+            <if test="housefund != null">
+                housefund = #{housefund,jdbcType=REAL},
+            </if>
+            <if test="reimbursement != null">
+                reimbursement = #{reimbursement,jdbcType=REAL},
+            </if>
+            <if test="paward != null">
+                paward = #{paward,jdbcType=REAL},
+            </if>
+            <if test="insur != null">
+                insur = #{insur,jdbcType=REAL},
+            </if>
+            <if test="sastatus != null">
+                sastatus = #{sastatus,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.pro.rem.model.Salcon">
+    update salcon
+    set userid = #{userid,jdbcType=INTEGER},
+      wage = #{wage,jdbcType=REAL},
+      housefund = #{housefund,jdbcType=REAL},
+      reimbursement = #{reimbursement,jdbcType=REAL},
+      paward = #{paward,jdbcType=REAL},
+      insur = #{insur,jdbcType=REAL},
+      sastatus = #{sastatus,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+    <!--查询所有人的在用薪酬结构-->
+    <select id="getAllSalCon" resultType="java.util.Map">
+      select a.*,b.username,c.deptName from salcon a,user b,dept c where a.userid=b.userid and c.deptid=b.fid and a.sastatus=1
+    </select>
+    <!--  通过员工id查询出薪酬结构-->
+    <select id="getAllSalConById" resultType="com.pro.rem.model.Salcon" parameterType="com.pro.rem.model.Salcon">
+       select * from salcon where userid =#{userid} and sastatus=1
+    </select>
+    <select id="updByID" parameterType="com.pro.rem.model.Salcon">
+       update salcon set wage = #{wage},housefund =#{housefund},reimbursement =#{reimbursement},paward = #{paward},insur = #{insur},sastatus =1
+       where userid=#{userid}
+    </select>
+    <select id="DelByID" parameterType="com.pro.rem.model.Salcon">
+       update salcon set sastatus =2
+       where userid=#{userid}
+    </select>
+
+    <!--查询重复工资结构-->
+    <select id="getRep" resultType="java.util.Map" parameterType="java.util.Map">
+      select * from salcon where sastatus=1 and userid=#{userid}
+    </select>
+
+</mapper>

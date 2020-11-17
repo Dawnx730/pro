@@ -5,21 +5,20 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
+
 @Repository
 public interface TimecardMapper {
-    int deleteByPrimaryKey(Integer id);
+    List<Map> getAll();
 
     int insert(Timecard record);
 
-    int insertSelective(Timecard record);
-
-    Timecard selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(Timecard record);
-
-    int updateByPrimaryKey(Timecard record);
-
-    List<Map> getAll();
-
     List<Map> getRep(Timecard timecard);
+
+    List<Map> selByName(Map map);
+
+    void updateStatus(Timecard timecard);
+
+    List<Map> selectBySal(Map map);
+
+    void updData(Map map);
 }
