@@ -1,7 +1,6 @@
 package com.pro.contract.service.impl;
 
 import com.pro.contract.mapper.PersonnelMapper;
-import com.pro.contract.model.Contract;
 import com.pro.contract.model.Personnel;
 import com.pro.contract.service.PersonnelService;
 import org.springframework.beans.factory.annotation.Autowired;

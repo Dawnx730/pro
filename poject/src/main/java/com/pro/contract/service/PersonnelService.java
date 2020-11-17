@@ -1,6 +1,5 @@
 package com.pro.contract.service;
 
-import com.pro.contract.model.Contract;
 import com.pro.contract.model.Personnel;
 import org.apache.ibatis.annotations.Param;
 

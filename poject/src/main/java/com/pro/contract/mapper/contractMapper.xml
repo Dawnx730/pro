@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.pro.contract.mapper.ContractMapper" >
-  <resultMap id="BaseResultMap" type="com.pro.contract.model.Contract" >
+<mapper namespace="com.pro.contract.mapper.contractMapper" >
+  <resultMap id="BaseResultMap" type="com.pro.contract.model.contract" >
     <constructor >
       <idArg column="id" jdbcType="INTEGER" javaType="java.lang.Integer" />
       <arg column="fid" jdbcType="INTEGER" javaType="java.lang.Integer" />
@@ -15,24 +15,25 @@
     id, fid, cname, cnature, cagreement, cstatus
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from contract
     where id = #{id,jdbcType=INTEGER}
   </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from contract
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.pro.contract.model.Contract" >
-    insert into contract (id, fid, cname, 
+  <insert id="insert" parameterType="com.pro.contract.model.contract" >
+    insert into contract (id, fid, cname,
       cnature, cagreement, cstatus
       )
-    values (#{id,jdbcType=INTEGER}, #{fid,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{fid,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR},
       #{cnature,jdbcType=VARCHAR}, #{cagreement,jdbcType=VARCHAR}, #{cstatus,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.pro.contract.model.Contract" >
+  <insert id="insertSelective" parameterType="com.pro.contract.model.contract" >
     insert into contract
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -75,7 +76,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.pro.contract.model.Contract" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.pro.contract.model.contract" >
     update contract
     <set >
       <if test="fid != null" >
@@ -96,7 +97,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.pro.contract.model.Contract" >
+  <update id="updateByPrimaryKey" parameterType="com.pro.contract.model.contract" >
     update contract
     set fid = #{fid,jdbcType=INTEGER},
       cname = #{cname,jdbcType=VARCHAR},
@@ -105,4 +106,17 @@
       cstatus = #{cstatus,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  <!--查询-->
+  <select id="listPager" resultType="java.util.Map" parameterType="com.pro.contract.model.contract">
+   select  * from  contract
+   where cname= #{cname}
+  </select>
+
+  <select id="quanContract" resultType="com.pro.contract.model.contract" parameterType="com.pro.contract.model.contract">
+   select  * from  contract
+   where cname= #{cname}
+  </select>
+
+
 </mapper>

@@ -1,59 +1,63 @@
 package com.pro.contract.controller;
-import com.pro.contract.model.Contract;
-import com.pro.contract.service.ContractService;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import javax.servlet.http.HttpServletRequest;
 
-/*
+import com.pro.contract.model.contract;
+import com.pro.contract.service.ContractService;
+import com.pro.util.JSONResult;
+import com.pro.util.PageBean;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+/**
  * @author wang
  * @site https://blog.csdn.net/qq_45432593
- * @create 2020-11-06  14:01
+ * @create 2020-11-16  19:24
  */
-@Controller
-@RequestMapping("/ContractController")
-public class ContractController {
 
+@RestController
+@RequestMapping("/contract")
+public class ContractController {
+  @Autowired
     private ContractService contractService;
 
-    @RequestMapping("/deleteByPrimaryKey")
-    public  String deleteByPrimaryKey(Contract contract, HttpServletRequest req){
-        if(contract != null && contract.getId() !=0){
-            this.contractService.deleteByPrimaryKey(contract.getId());
+  @RequestMapping("listPager")
+  @ResponseBody
+    public JSONResult listPager(HttpServletRequest request, PageBean pageBean){
+      Map map=new HashMap();
+      String cname=request.getParameter("cname");
+      map.put("cname",cname);
+      List<Map> list=this.contractService.listPager(map,pageBean);
+      System.out.println("总数"+pageBean.getTotal());
+      return  JSONResult.ok(list,pageBean.getTotal());
+  }
 
-        }
-        return  "redirect:/Contoract/list";
-    }
+  @RequestMapping("/add")
+   public  JSONResult add(contract contract , HttpServletRequest request){
+      Integer n= this.contractService.insertSelective(contract);
 
-    @RequestMapping("/insert")
-    public  String insert(HttpServletRequest req){
-        return  "redirect:/Contoract/list";
-    }
-    @RequestMapping("/insertSelective")
-    public  String insertSelective(HttpServletRequest req){
-        return  "redirect:/Contoract/list";
-    }
-    @RequestMapping("/selectByPrimaryKey")
-    public  String selectByPrimaryKey(HttpServletRequest req){
-        return  "redirect:/Contoract/list";
-    }
-    @RequestMapping("/updateByPrimaryKeySelective")
-    public  String updateByPrimaryKeySelective(HttpServletRequest req){
-        return  "redirect:/Contoract/list";
-    }
-    @RequestMapping("/updateByPrimaryKey")
-    public  String updateByPrimaryKey(HttpServletRequest req){
-        return  "redirect:/Contoract/list";
-    }
-    @RequestMapping("/selectContract")
-    public  String selectContract(HttpServletRequest req){
-        return  "redirect:/Contoract/list";
-    }
+      return JSONResult.build(n,"增加成功",null);
 
-    @RequestMapping("/selectContractLike")
-    public  String selectContractLike(HttpServletRequest req){
-        return  "redirectList";
-    }
+  }
 
+  @RequestMapping("/Contractdel")
+    public  JSONResult Contractdel(HttpServletRequest request){
+      String id=request.getParameter("id");
+      System.out.println("111"+id);
+      Integer i=this.contractService.deleteByPrimaryKey(Integer.parseInt(id));
+      return  JSONResult.build(i,i==1?"删除成功":"删除失败",null);
+
+  }
+
+  @RequestMapping("/edit")
+    public  JSONResult edit(contract contract,HttpServletRequest request){
+      Integer i=this.contractService.updateByPrimaryKeySelective(contract);
+      return  JSONResult.build(i,"修改成功",null);
+  }
 
 }

@@ -1,6 +1,5 @@
 package com.pro.contract.mapper;
 
-import com.pro.contract.model.Contract;
 import com.pro.contract.model.Personnel;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
