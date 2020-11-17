@@ -31,13 +31,23 @@
     <sql id="Base_Column_List">
     right_code, right_parent_code, right_type, right_text, right_url, right_tip, right_node_type
   </sql>
+
+
     <!--查询根级节点-->
-    <select id="TreeMenu" resultMap="SysRight">
-    select
-    *
-    from sys_right
-    where right_parent_code =0
-  </select>
+    <select id="TreeMenu" resultMap="SysRight" parameterType="java.util.List">
+        select
+        *
+        from sys_right
+        <where>
+            <if test="list!= null and list.size() > 0">
+                right_code IN
+                <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+                    #{item}
+                </foreach>
+            </if>
+        </where>
+    </select>
+
     <!--查询所有子节点-->
     <select id="MenuChlidren" resultMap="SysRight">
     select
@@ -45,5 +55,6 @@
     from sys_right
     where right_parent_code = #{rightCode}
   </select>
+
 
 </mapper>

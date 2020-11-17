@@ -33,6 +33,11 @@ public interface UserMapper {
 
     List<User> getAllByAccount(User user);
 
-    List<Map> getNameByDeptId(@Param("fid")Integer fid);
+    List<Map> getNameByDeptId(@Param("fid") Integer fid);
 
+    List<Map> getAll();
+
+    List<Map> selectAll();
+
+    List<Integer> queryLimitByUserId(@Param("id") Integer id);
 }

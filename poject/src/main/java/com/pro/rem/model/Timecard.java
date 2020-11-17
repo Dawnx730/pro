@@ -5,13 +5,13 @@ public class Timecard {
 
     private Integer fid;
 
-    private String work;
+    private Integer work;
 
-    private String ywork;
+    private Integer ywork;
 
-    private String month;
+    private Integer month;
 
-    private String tyear;
+    private Integer tyear;
 
     private String tremark;
 
@@ -19,7 +19,9 @@ public class Timecard {
 
     private Integer leave;
 
-    public Timecard(Integer id, Integer fid, String work, String ywork, String month, String tyear, String tremark, Integer late, Integer leave) {
+    private Integer overtime;
+
+    public Timecard(Integer id, Integer fid, Integer work, Integer ywork, Integer month, Integer tyear, String tremark, Integer late, Integer leave, Integer overtime) {
         this.id = id;
         this.fid = fid;
         this.work = work;
@@ -29,6 +31,7 @@ public class Timecard {
         this.tremark = tremark;
         this.late = late;
         this.leave = leave;
+        this.overtime = overtime;
     }
 
     public Timecard() {
@@ -51,35 +54,35 @@ public class Timecard {
         this.fid = fid;
     }
 
-    public String getWork() {
+    public Integer getWork() {
         return work;
     }
 
-    public void setWork(String work) {
+    public void setWork(Integer work) {
         this.work = work;
     }
 
-    public String getYwork() {
+    public Integer getYwork() {
         return ywork;
     }
 
-    public void setYwork(String ywork) {
+    public void setYwork(Integer ywork) {
         this.ywork = ywork;
     }
 
-    public String getMonth() {
+    public Integer getMonth() {
         return month;
     }
 
-    public void setMonth(String month) {
+    public void setMonth(Integer month) {
         this.month = month;
     }
 
-    public String getTyear() {
+    public Integer getTyear() {
         return tyear;
     }
 
-    public void setTyear(String tyear) {
+    public void setTyear(Integer tyear) {
         this.tyear = tyear;
     }
 
@@ -105,5 +108,13 @@ public class Timecard {
 
     public void setLeave(Integer leave) {
         this.leave = leave;
+    }
+
+    public Integer getOvertime() {
+        return overtime;
+    }
+
+    public void setOvertime(Integer overtime) {
+        this.overtime = overtime;
     }
 }

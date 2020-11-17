@@ -12,6 +12,8 @@
             <arg column="username" jdbcType="VARCHAR" javaType="java.lang.String"/>
         </constructor>
     </resultMap>
+
+
     <sql id="Base_Column_List">
     userid, account, password, level, status, fid, username
   </sql>
@@ -121,7 +123,7 @@
     <select id="login" resultType="com.pro.limit.model.User" parameterType="com.pro.limit.model.User">
     select *
     from user
-    where account = #{account} and password =#{password}
+    where account = #{account} and password =#{password} and status=1
     </select>
     <!--    通过账号查询权限-->
     <select id="getLevel" resultType="java.lang.Integer" parameterType="com.pro.limit.model.User">
@@ -135,7 +137,6 @@
     from user
     where account = #{account}
     </select>
-
     <!--通过账号查询部门id-->
     <select id="getDeptByAccount" resultType="java.lang.Integer" parameterType="com.pro.limit.model.User">
     select fid
@@ -159,4 +160,16 @@
     <select id="getNameByDeptId" resultType="java.util.Map" parameterType="java.lang.Integer">
       select * from user where fid=#{fid}
     </select>
+
+    <select id="getAll" resultType="java.util.Map">
+      select * from user where status=1 and level &lt;=3
+    </select>
+    <select id="selectAll" resultType="java.util.Map">
+      select * from user
+    </select>
+
+    <!--根据id，查询这个用户所有的权限节点-->
+    <select id="queryLimitByUserId" resultType="java.lang.Integer" parameterType="Integer">
+        select  b.sysid from user a,role b where a.userid=b.userid and a.userid=#{id}
+  </select>
 </mapper>

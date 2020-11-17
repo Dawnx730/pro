@@ -17,4 +17,11 @@ public interface TimeCardService {
 
     List<Map> getRep(Timecard timecard);
 
+    void updateStatus(Timecard timecard);
+
+    List<Map> selectBySal(Map map);
+
+    List<Map> selByName(Map map);
+
+    void updData(Map map);
 }

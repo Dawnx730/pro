@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author xiaoyang
@@ -26,55 +27,29 @@ public class SysRightController {
     @Autowired
     private UserService userService;
 
-
+    //判断用户权限加载树结构
     @ResponseBody
     @RequestMapping("/list")
-    public List<SysRight> list(User user) {
-        Integer level = userService.getLevel(user);
-        //级别，权限设计  1、普通员工 2、部门经理 3、管理员
-        List<SysRight> sysRights = sysRightService.TreeMenu();
-        List<SysRight> list = new ArrayList<>();
-        if (level == 3) {
-            return sysRights;
-        } else if (level == 2) {
-            //循环判断权限对应的父节点和子节点
-            for (int i = 0; i < sysRights.size(); i++) {
-                for (int i1 = 0; i1 < sysRights.get(i).getChildren().size(); i1++) {
-                    if(sysRights.get(i).getChildren().get(i1).getRightNodeType()<3){
-                        list.add(sysRights.get(i));
-                        break;
-                    }
-                }
+    public List<SysRight> test(User user) {
+        Integer idByAccount = userService.getIdByAccount(user);
+        List<Integer> integers = userService.queryLimitByUserId(idByAccount);
+        List<SysRight> list = sysRightService.TreeMenu(integers);
+        List<SysRight> newList = new ArrayList<>();
+        for (SysRight sysRight : list) {
+            if (sysRight.getChildren() != null && sysRight.getChildren().size() > 0) {
+                newList.add(sysRight);
             }
-            for (int i = 0; i < list.size(); i++) {
-                for (int i1 = 0; i1 < list.get(i).getChildren().size(); i1++) {
-                    if(list.get(i).getChildren().get(i1).getRightNodeType()>=3){
-                        list.get(i).getChildren().remove(i1);
-                        i1--;
-                    }
-                }
-            }
-            return list;
-        } else {
-            //循环判断权限对应的父节点和子节点
-            for (int i = 0; i < sysRights.size(); i++) {
-                for (int i1 = 0; i1 < sysRights.get(i).getChildren().size(); i1++) {
-                    if(sysRights.get(i).getChildren().get(i1).getRightNodeType()==1){
-                        list.add(sysRights.get(i));
-                        break;
-                    }
-                }
-            }
-            for (int i = 0; i < list.size(); i++) {
-                for (int i1 = 0; i1 < list.get(i).getChildren().size(); i1++) {
-                    if(list.get(i).getChildren().get(i1).getRightNodeType()!=1){
-                        list.get(i).getChildren().remove(i1);
-                        i1--;
-                    }
-                }
-            }
-            return list;
         }
+        for (int i = 0; i < newList.size(); i++) {
+            for (int j = 0; j < newList.get(i).getChildren().size(); j++) {
+                if (!integers.contains(newList.get(i).getChildren().get(j).getRightCode())) {
+                    newList.get(i).getChildren().remove(j);
+                    j--;
+                }
+            }
+        }
+        return newList;
     }
+
 
 }

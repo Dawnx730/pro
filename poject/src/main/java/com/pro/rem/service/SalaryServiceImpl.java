@@ -1,8 +1,8 @@
 package com.pro.rem.service;
 
-import com.pro.limit.model.User;
 import com.pro.rem.mapper.SalaryMapper;
 import com.pro.rem.model.Salary;
+import com.pro.rem.model.Timecard;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,5 +37,41 @@ public class SalaryServiceImpl implements SalaryService {
     @Override
     public List<Map>  getAll(Map map) {
         return salaryMapper.getAll(map);
+    }
+
+    @Override
+    public List<Map>  SalaryRep(Timecard timecard) {
+        return salaryMapper.SalaryRep(timecard);
+    }
+
+    @Override
+    public Integer approval(Map map) {
+        return salaryMapper.approval(map);
+    }
+
+    @Override
+    public void updateSalStatus(Map map) {
+        salaryMapper.updateSalStatus(map);
+    }
+
+    @Override
+    public void updateSalStatusT(Map map) {
+        salaryMapper.updateSalStatusT(map);
+    }
+
+    @Override
+    public void updSp(Map map) {
+        salaryMapper.updSp(map);
+    }
+
+
+    @Override
+    public void updateSalStatusF(Map map) {
+        salaryMapper.updateSalStatusF(map);
+    }
+
+    @Override
+    public List<Map> getAllBySta(Map map) {
+        return salaryMapper.getAllBySta(map);
     }
 }

@@ -1,5 +1,8 @@
 package com.pro.limit.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
     private Integer userid;
 
@@ -14,6 +17,8 @@ public class User {
     private Integer fid;
 
     private String username;
+
+    List<SysRight> sysRights=new ArrayList<>();
 
     public User(Integer userid, String account, String password, Integer level, Integer status, Integer fid, String username) {
         this.userid = userid;

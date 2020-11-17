@@ -82,4 +82,21 @@ public class UserServiceImpl implements UserService {
     public List<Map> getNameByDeptId(Integer fid) {
         return userMapper.getNameByDeptId(fid);
     }
+
+    @Override
+    public List<Map> getAll() {
+        return userMapper.getAll();
+    }
+
+    @Override
+    public List<Map> selectAll() {
+        return userMapper.selectAll();
+    }
+
+    @Override
+    public List<Integer> queryLimitByUserId(Integer id) {
+        return userMapper.queryLimitByUserId(id);
+    }
+
+
 }

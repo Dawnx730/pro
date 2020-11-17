@@ -30,6 +30,7 @@ public class UserController {
      * @return
      */
     @ResponseBody
+    
     @RequestMapping(value = "/login", produces = "text/html;charset=UTF-8;")
     private String list(User u) {
         User login = userService.login(u);
@@ -40,7 +41,7 @@ public class UserController {
         return null;
     }
 
-    //    通过账号查询全部信息
+    // 通过账号查询全部信息
     @ResponseBody
     @RequestMapping("/getAllByAccount")
     public List<User> getAllByAccount(User user) {
@@ -48,7 +49,7 @@ public class UserController {
         return allByAccount;
     }
 
-    //    查询用户id
+    // 查询用户id
     @ResponseBody
     @RequestMapping("/getId")
     public int getId(User user) {
@@ -77,5 +78,21 @@ public class UserController {
     public List<Map> getLevel(Dept dept) {
         List<Map> nameByDeptId = userService.getNameByDeptId(dept.getDeptid());
         return nameByDeptId;
+    }
+
+    //  获取所有员工
+    @ResponseBody
+    @RequestMapping("/getAll")
+    public List<Map> getAll() {
+        List<Map> all = userService.getAll();
+        return all;
+    }
+
+    //  获取所有员工
+    @ResponseBody
+    @RequestMapping("/selAll")
+    public List<Map> selAll() {
+        List<Map> all = userService.selectAll();
+        return all;
     }
 }

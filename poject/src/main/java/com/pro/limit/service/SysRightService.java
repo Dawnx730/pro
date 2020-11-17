@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public interface SysRightService {
 
-    List<SysRight> TreeMenu();
+    List<SysRight> TreeMenu(List<Integer> list);
 
 
 

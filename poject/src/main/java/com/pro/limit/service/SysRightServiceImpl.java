@@ -18,9 +18,9 @@ public class SysRightServiceImpl implements SysRightService {
     @Autowired
     private SysRightMapper sysRightMapper;
 
-    @Override
-    public List<SysRight> TreeMenu() {
-        return sysRightMapper.TreeMenu();
-    }
 
+    @Override
+    public List<SysRight> TreeMenu(List<Integer> list) {
+        return sysRightMapper.TreeMenu(list);
+    }
 }
