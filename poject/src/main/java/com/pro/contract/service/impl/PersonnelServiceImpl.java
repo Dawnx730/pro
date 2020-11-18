@@ -3,10 +3,12 @@ package com.pro.contract.service.impl;
 import com.pro.contract.mapper.PersonnelMapper;
 import com.pro.contract.model.Personnel;
 import com.pro.contract.service.PersonnelService;
+import com.pro.util.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author wang
@@ -56,13 +58,14 @@ public class PersonnelServiceImpl implements PersonnelService {
         return personnelMapper.updateByPrimaryKey(record);
     }
 
-   /* @Override
-    public List<Personnel> selectPersonnel(List pid) {
-        return personnelMapper.selectPersonnel(pid);
-    }*/
+    @Override
+    public List<Map> listPager(Map map, PageBean pageBean) {
+        return personnelMapper.listPager(map);
+    }
 
-  /*  @Override
-    public List<Contract> selectContractLike(String cname) {
-        return personnelMapper.selectContractLike(cname);
-    }*/
+    @Override
+    public Personnel quanPersonnel(String cname) {
+        return personnelMapper.quanPersonnel(cname);
+    }
+
 }

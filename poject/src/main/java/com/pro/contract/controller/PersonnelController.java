@@ -1,13 +1,18 @@
 package com.pro.contract.controller;
 import com.pro.contract.model.Personnel;
 import com.pro.contract.service.PersonnelService;
+import com.pro.util.JSONResult;
 import com.pro.util.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import javax.servlet.http.HttpServletRequest;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author wang
@@ -16,57 +21,38 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/PersonnelController")
+@RequestMapping("/Personnel")
 public class PersonnelController {
       
     @Autowired
     private  PersonnelService personnelService;
 
-    @RequestMapping("/deleteByPrimaryKey/{pid}")
-    public  String deleteByPrimaryKey(@PathVariable("pid") Integer pid, HttpServletRequest req){
-        this.personnelService.deleteByPrimaryKey(pid);
-        return  "redirect:/Personnel/list";
+    @ResponseBody
+    @RequestMapping("listPager")
+    public JSONResult listPager(HttpServletRequest request,PageBean pageBean){
+        Map map=new HashMap();
+//        String fname=request.getParameter("fname");
+        List<Map> list=this.personnelService.listPager(map,null);
+        System.out.println("总数"+pageBean.getTotal());
+        return JSONResult.ok(list,pageBean.getTotal());
     }
 
-    @RequestMapping("/insert")
-    public  String insert(HttpServletRequest req){
-        return  "redirect:/Personnel/list";
+    @RequestMapping("/add")
+    public JSONResult add(Personnel personnel,HttpServletRequest request){
+          Integer n=this.personnelService.insertSelective(personnel);
+        return  JSONResult.build(n,"增加成功",null);
     }
 
-    @RequestMapping("/insertSelective")
-    public  String insertSelective(HttpServletRequest req){
-
-        return  "redirect:/Personnel/list";
+    @RequestMapping("/del")
+    public JSONResult del(HttpServletRequest request){
+        String id=request.getParameter("id");
+        System.out.println("111"+id);
+        Integer i=this.personnelService.deleteByPrimaryKey(Integer.parseInt(id));
+        return  JSONResult.build(i,i==1?"删除成功":"删除失败",null);
     }
-
-    @RequestMapping("/selectByPrimaryKey")
-    public  String selectByPrimaryKey(HttpServletRequest req){
-
-        return  "redirectList";
+    @RequestMapping("/edit")
+    public  JSONResult edit(Personnel personnel,HttpServletRequest request){
+        Integer i=this.personnelService.updateByPrimaryKeySelective(personnel);
+        return JSONResult.build(i,"修改成功",null);
     }
-
-    @RequestMapping("/updateByPrimaryKeySelective")
-    public  String updateByPrimaryKeySelective(HttpServletRequest req){
-
-        return  "redirect:/Personnel/list";
-    }
-
-    @RequestMapping("/updateByPrimaryKey")
-    public  String updateByPrimaryKey(HttpServletRequest req){
-
-        return  "redirect:/Personnel/list";
-    }
-
-    @RequestMapping("/selectPersonnel")
-    public  String selectPersonnel(Personnel personnel, HttpServletRequest req){
-        PageBean pageBean=new PageBean();
-        pageBean.setRequest(req);
-        return  "redirectList";
-    }
-
-    @RequestMapping("/selectContractLike")
-    public  String selectContractLike(HttpServletRequest req){
-        return  "redirectList";
-    }
-
 }

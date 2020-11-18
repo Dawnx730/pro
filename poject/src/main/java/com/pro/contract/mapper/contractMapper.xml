@@ -29,7 +29,7 @@
     insert into contract (id, fid, cname,
       cnature, cagreement, cstatus
       )
-    values (#{id,jdbcType=INTEGER}, #{fid,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR},
+    values (null, #{fid,jdbcType=INTEGER}, #{cname,jdbcType=VARCHAR},
       #{cnature,jdbcType=VARCHAR}, #{cagreement,jdbcType=VARCHAR}, #{cstatus,jdbcType=INTEGER}
       )
   </insert>
@@ -108,14 +108,14 @@
   </update>
 
   <!--查询-->
-  <select id="listPager" resultType="java.util.Map" parameterType="com.pro.contract.model.contract">
-   select  * from  contract
-   where cname= #{cname}
+  <select id="listPager" resultType="java.util.Map" parameterType="java.util.Map">
+    select a.*, b.fname,b.ruzhitime,b.yertime,c.deptName from contract a,userinfo b,dept c
+    where a.fid=b.fid and a.fid=c.deptid
   </select>
 
   <select id="quanContract" resultType="com.pro.contract.model.contract" parameterType="com.pro.contract.model.contract">
-   select  * from  contract
-   where cname= #{cname}
+     select a.*, b.fname,b.ruzhitime,b.yertime,c.deptName from contract a,userinfo b,dept c
+     where a.fid=b.fid and a.fid=c.deptid
   </select>
 
 

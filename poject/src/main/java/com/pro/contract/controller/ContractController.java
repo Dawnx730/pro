@@ -1,10 +1,13 @@
 package com.pro.contract.controller;
 
+import com.pro.contract.model.Personnel;
 import com.pro.contract.model.contract;
 import com.pro.contract.service.ContractService;
+import com.pro.contract.service.PersonnelService;
 import com.pro.util.JSONResult;
 import com.pro.util.PageBean;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,27 +23,30 @@ import java.util.Map;
  * @create 2020-11-16  19:24
  */
 
-@RestController
+@Controller
 @RequestMapping("/contract")
 public class ContractController {
-  @Autowired
-    private ContractService contractService;
 
-  @RequestMapping("listPager")
+
+    @Autowired
+    private ContractService contractService;
+    private PersonnelService personnelService;
+
   @ResponseBody
+  @RequestMapping("listPager")
     public JSONResult listPager(HttpServletRequest request, PageBean pageBean){
       Map map=new HashMap();
-      String cname=request.getParameter("cname");
-      map.put("cname",cname);
-      List<Map> list=this.contractService.listPager(map,pageBean);
+     // String cname=request.getParameter("cname");
+
+      List<Map> list=this.contractService.listPager(map,null);
       System.out.println("总数"+pageBean.getTotal());
       return  JSONResult.ok(list,pageBean.getTotal());
   }
 
   @RequestMapping("/add")
-   public  JSONResult add(contract contract , HttpServletRequest request){
-      Integer n= this.contractService.insertSelective(contract);
-
+   public  JSONResult add(Personnel personnel, contract contract , HttpServletRequest request){
+      Integer n= this.contractService.insert(contract);
+      Integer nn=this.personnelService.insert(personnel);
       return JSONResult.build(n,"增加成功",null);
 
   }

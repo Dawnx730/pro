@@ -60,6 +60,7 @@
       </if>
     </trim>
   </insert>
+
   <update id="updateByPrimaryKeySelective" parameterType="com.pro.contract.model.Personnel" >
     update personnel
     <set >
@@ -84,8 +85,20 @@
   </update>
 <!--forech标签的使用-->
   <select id="selectPersonnel" resultType="com.pro.contract.model.Personnel" parameterType="java.util.List">
-      select  * from  personnel where pid in 
+      select  * from  personnel where pid in
       <foreach collection="pid" item="pid" open="(" close=")" separator=","></foreach>
         #{pid}
   </select>
+
+  <select id="listPager" resultType="java.util.Map" parameterType="java.util.Map">
+   select a.*, b.fname,b.fsex,b.position,b.ftel,b.birth,c.deptName from user a,userinfo b,dept c
+where a.fid=b.fid and a.fid=c.deptid
+
+  </select>
+  <select id="quanPersonnel" resultType="com.pro.contract.model.Personnel" parameterType="com.pro.contract.model.Personnel">
+ select a.*, b.fname,b.fsex,b.position,b.ftel,b.birth,c.deptName from user a,userinfo b,dept c
+where a.fid=b.fid and a.fid=c.deptid
+
+  </select>
+
 </mapper>

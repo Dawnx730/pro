@@ -1,9 +1,11 @@
 package com.pro.contract.service;
 
 import com.pro.contract.model.Personnel;
+import com.pro.util.PageBean;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author wang
@@ -12,25 +14,22 @@ import java.util.List;
  */
 public interface PersonnelService {
 
+    //刪除
     int deleteByPrimaryKey(Integer pid);
 
     int insert(Personnel record);
-
+    //增加
     int insertSelective(Personnel record);
 
     Personnel selectByPrimaryKey(Integer pid);
 
+    //修改
     int updateByPrimaryKeySelective(Personnel record);
 
     int updateByPrimaryKey(Personnel record);
 
-   // List<Personnel> selectPersonnel(List pid);
+    List<Map> listPager(Map map, PageBean pageBean);
 
-
-    /**
-     * 模糊查询
-     * @return
-     */
-   /* List<Contract> selectContractLike(@Param("cname") String cname);*/
+    Personnel quanPersonnel(String cname);
 
 }
